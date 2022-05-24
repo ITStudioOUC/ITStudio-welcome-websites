@@ -12,7 +12,7 @@
       </div>
       <div id="more">
         <span data-aos="fade-up"
-          >了解更多<img class="arrow" src="../../assets/img/arrow_r.png" alt=""
+          ><router-link to = "/membersInfo">了解更多</router-link><img class="arrow" src="../../assets/img/arrow_r.png" alt=""
         /></span>
       </div>
     </div>
