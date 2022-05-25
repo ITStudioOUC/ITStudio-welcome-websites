@@ -181,6 +181,7 @@ export default {
 .bigBg {
   width: 100vw;
   height: 100vh;
+  padding: 2.34vw 0 0 0;
   display: flex;
   align-items: center;
   background-attachment: fixed;
@@ -262,7 +263,7 @@ export default {
   width: 67.92vw;
   height: 33.75vw;
   margin: 1.93vw 0vw 4.69vw 2.76vw;
-  padding: 2.86vw 2.08vw 6.15vw 3.96vw;
+  padding: 2.86vw 2.08vw 4.15vw 3.96vw;
   z-index: 5;
 
   background: #ffffff;
