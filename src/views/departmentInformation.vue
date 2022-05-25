@@ -153,11 +153,6 @@ export default {
     //  --------
     // 切换介绍名片
     changePage(id) {
-     
-      if (!id) {
-        return false;
-      }
-      else {
         let max_zindex = 5;
         let i;         
         let dom = document.querySelectorAll(".infoBox");
@@ -178,7 +173,6 @@ export default {
           this.pages[id].style.zIndex = max_zindex;
           this.pages[id].style.transform = "translateX(0vw)";
         }
-      }
     },
   },
 };
