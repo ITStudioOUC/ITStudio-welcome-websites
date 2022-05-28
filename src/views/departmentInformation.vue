@@ -248,7 +248,7 @@ export default {
 .infoBox {
   position: absolute;
   display: flex;
-  overflow: hidden;
+  /* overflow: hidden; */
   z-index: 5;
   pointer-events: none;
 
@@ -263,7 +263,7 @@ export default {
   width: 67.92vw;
   height: 33.75vw;
   margin: 1.93vw 0vw 4.69vw 2.76vw;
-  padding: 2.86vw 2.08vw 4.15vw 3.96vw;
+  padding: 1.86vw 2.08vw 6.2vw 3.96vw;
   z-index: 5;
 
   background: #ffffff;
@@ -290,11 +290,11 @@ export default {
 .infoContentBox {
   display: flex;
   justify-content: space-between;
-  margin: 2.97vw 0 0 0;
+  margin: 2vw 0 0 0;
   overflow: hidden;
 }
 .infoContentWord {
-  width: 26.98vw;
+  width: 30.98vw;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -303,45 +303,46 @@ export default {
 
 } */
 .Chinese {
-  width: 26.98vw;
+  width: 30.98vw;
   margin: 0 0 1.56vw 0;
   /* width: 295px; */
-  height: 3.85vw;
-  line-height: 3.85vw;
-  font-size: 3.75vw;
+  height: 3.80vw;
+  line-height: 3.80vw;
+  font-size: 3.70vw;
+  
   font-family: Microsoft YaHei UI;
   font-weight: bold;
   color: #483029;
 }
 .English {
-  width: 26.98vw;
-  margin: 0 0 4.06vw -0.52vw;
+  width: 30.98vw;
+  margin: 0 0 2.06vw -0.52vw;
   /* -0.52补正 由于translate导致的移位 是因为子元素继承父元素的属性？ */
   /* width: 245px; */
-  line-height: 2.55vw;
-  height: 2.55vw;
-  font-size: 3.02vw;
+  line-height: 2.50vw;
+  height: 2.50vw;
+  font-size: 2.5vw;
   font-family: Microsoft YaHei UI;
   font-weight: bold;
   color: #56433d;
 }
 .departmentInformation {
-  width: 26.98vw;
+  width: 30.98vw;
   margin: 0 0 0 -1.04vw;
   /* -1.04补正 由于translate导致的移位 是因为子元素继承父元素的属性？ */
   /* width: 29.74vw; */
   /* height: 5.36vw; */
-  font-size: 1.15vw;
-  font-family: Microsoft YaHei UI;
-  font-weight: bold;
+  font-size: 1.10vw;
+  font-family:SimHei;
+  font-weight: 600;
   color: #4a4a4a;
 }
 .departmentTask {
   margin: 2.04vw 0 0 -1.56vw;
   /* -1.56补正 由于translate导致的移位 是因为子元素继承父元素的属性？ */
-  width: 26.98vw;
+  width: 30.98vw;
   font-size: 1.15vw;
-  font-family: Microsoft YaHei UI;
+  font-family:SimHei;
   font-weight: bold;
   color: #4a4a4a;
 }
@@ -353,20 +354,20 @@ export default {
   overflow: hidden;
 }
 .infoBookmark {
-  width: 6.56vw;
+  width: 7.6vw;
   height: 5.26vw;
   /* margin: 5.26vw 0 0 0; */
   background: rgba(255, 255, 255, 0.95);
-  border: 2px solid #fde1a3;
+  border: 0.1vw solid #fde1a3;
   /* box-shadow: 1.56vw 0px 1.51vw 0px rgba(0, 0, 0, 0.07); */
-  border-radius: 0px 1.04vw 1.04vw 0px;
+  border-radius: 0vw 1.04vw 1.04vw 0vw;
   pointer-events: auto;
   /* width: 91px;
 height: 24px; */
   text-align: center;
   line-height: 5.26vw;
-  font-size: 1.15vw;
-  font-family: Microsoft YaHei UI;
+  font-size: 1.10vw;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-weight: bold;
   color: #666666;
   cursor: pointer;
