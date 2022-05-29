@@ -335,7 +335,7 @@ export default {
   font-size: 1.10vw;
   font-family:SimHei;
   font-weight: 600;
-  color: #4a4a4a;
+  color: rgb(106, 103, 103);
 }
 .departmentTask {
   margin: 2.04vw 0 0 -1.56vw;
@@ -344,7 +344,7 @@ export default {
   font-size: 1.15vw;
   font-family:SimHei;
   font-weight: bold;
-  color: #4a4a4a;
+  color: rgb(106, 103, 103);
 }
 .departmentPic {
   width: 33.8vw;

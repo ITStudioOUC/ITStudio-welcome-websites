@@ -535,7 +535,7 @@ export default {
         }
       }
     },
-    // ----------------------------
+    // -----------------
     sortKey(array, key) {
       return array.sort(function (a, b) {
         var x = a[key];
@@ -551,7 +551,7 @@ export default {
     // -----------
     //展示上下箭头函数
     showArrow() {
-      if (this.$data.memberArray_length > 6) {
+      if (this.$data.memberArray_length > 3) {
         this.$data.isShowBottomArrow = true;
       } else {
         this.$data.isShowBottomArrow = false;
@@ -573,10 +573,9 @@ export default {
     // 下箭头函数
     moveMemberBoxTop(id) {
       if (this.$data.isShowBottomArrow == true) {
-        this.$data.memberArray_length = this.$data.memberArray_length - 6;
+        this.$data.memberArray_length = this.$data.memberArray_length - 3;
         this.$data.node++; //想上移動
       }
-      //  console.log(this.memberArrays,"测试点");
       this.memberArrays[id].style.transform = `translateY(${
         -36 * this.$data.node
       }vw)`;
@@ -588,7 +587,7 @@ export default {
     // 上箭头函数
     moveMemberBoxBottom(id) {
       if (this.$data.isShowTopArrow == true) {
-        this.$data.memberArray_length = this.$data.memberArray_length + 6;
+        this.$data.memberArray_length = this.$data.memberArray_length + 3;
         this.$data.node--; //想下移動
       }
 
@@ -959,19 +958,23 @@ background-color: transparent;
   transform: translate(0);
   width: 43.75vw;
   display: flex;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
+  flex-direction: column;
 }
 .member {
-  width: 19vw;
+  width: 40vw; /**19 */
   height: 11vw;
   display: flex;
   padding: 1vw 0 0 0;
   /* align-items: center; */
   margin: 0 0 0 1.93vw;
+  
+overflow-x: hidden; /*禁止横向的滚动条*/
+overflow-y: scroll; /*总是显示纵向滚动条*/
 }
 .memberDetail {
-  width: 10vw;
-  margin: 0 0 0 1vw;
+  width: 25vw;     /**10 */
+  margin: 0 0 0 3vw;
   display: flex;
   flex-direction: column;
   /* align-items: center; */
@@ -980,7 +983,7 @@ background-color: transparent;
   width: 8.33vw;
   height: 8.33vw;
   background: #f2f2f2;
-  border-radius: 44%;
+  border-radius: 50%;
   overflow: hidden;
 }
 .memberPic > img {
@@ -997,7 +1000,7 @@ background-color: transparent;
   margin: 1.04vw 0;
 }
 .memberSaying {
-  width: 8.33vw;
+  width: 25vw;
   /* height: 19px; */
   font-size: 0.94vw;
   font-family: Microsoft YaHei UI;
