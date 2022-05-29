@@ -11,9 +11,9 @@
         v-for="(item, index) in departmentList"
         :key="index"
         data-aos="zoom-in-up"
-      >
+      ><router-link to = "/departmentInformation" @click="toDepartmentInfo(item.id)">
         <span class="imgBox"><img :src="item.icon" alt="" /></span>
-        <span class="name">{{ item.department_cn }} </span>
+        <span class="name" >{{ item.department_cn }} </span></router-link>
       </li>
     </div>
   </div>
@@ -32,6 +32,16 @@ export default {
       this.departmentList = res.data.data
       
     })
+  },
+  methods:{
+     toDepartmentInfo(id){
+       this.$router.push ({
+         path: "/departmentInformation",
+         query: {
+           code: id,
+         },
+       })
+     }
   }
 }
 </script>
@@ -73,6 +83,13 @@ h3 {
   margin-bottom: 4.69vw;
 }
 .fiveDepartment li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.fiveDepartment li > a {
   display: flex;
   flex-direction: column;
   align-items: center;
