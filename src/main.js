@@ -9,8 +9,7 @@ import ElementUI from 'element-plus';
 import "element-plus/theme-chalk/index.css"
 import axios from 'axios';
 const app = createApp(App);
-app.config.globalProperties.$http = axios; //这里的$http就可以代替axios出现了
-//配置根目录,(防止代码冗余
+app.config.globalProperties.$http = axios;
 axios.defaults.baseURL = 'http://101.43.216.170:8001/v1/api';
 
 AOS.init({

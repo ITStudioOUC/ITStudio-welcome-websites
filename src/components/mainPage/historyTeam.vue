@@ -12,7 +12,7 @@
       </div>
       <div id="more">
         <span data-aos="fade-up"
-          ><router-link to = "/membersInfo">了解更多</router-link><img class="arrow" src="../../assets/img/arrow_r.png" alt=""
+          ><router-link class="more_btn" to = "/membersInfo">了解更多</router-link><img class="arrow" src="../../assets/img/arrow_r.png" alt=""
         /></span>
       </div>
     </div>
@@ -80,11 +80,15 @@ img {
   font-family: Microsoft YaHei UI;
   font-weight: bold;
   color: #515050;
-  cursor: pointer;
+ 
   transition: color 0.3s;
 }
-#more span:hover {
+#more .more_btn:hover {
   color: #e19f73;
+}
+#more .more_btn{
+   cursor: pointer;
+   transition: 0.3s;
 }
 .arrow {
   width: 2vw;

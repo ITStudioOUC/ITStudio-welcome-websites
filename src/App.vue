@@ -3,7 +3,6 @@
     <router-view></router-view>
   </div>
 </template>
-
 <script>
 export default {
   name: "app",
@@ -16,7 +15,6 @@ export default {
   margin: 0;
   border: 0;
   outline: none;
-
   list-style: none;
   text-decoration: none;
   /* 禁止选择 */

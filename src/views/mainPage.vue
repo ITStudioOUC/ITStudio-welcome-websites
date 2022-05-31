@@ -1,6 +1,6 @@
 //createDate:2022-04-23
 <template >
-  <div class="mainPage" >
+  <div class="mainPage">
     <!-- 背景图部分 -->
     <div class="bgBlock">
       <!-- 顶部背景图 -->
@@ -49,23 +49,22 @@
       <div class="historyTeamBlock">
         <history-team />
       </div>
-       <!-- 底部栏 -->
-    <div class="bottomBlock">
-      <bottom-block />
+      <!-- 底部栏 -->
+      <div class="bottomBlock">
+        <bottom-block />
+      </div>
     </div>
-    </div>
-   
   </div>
 </template>
 
 <script>
-import itNav from "../components/mainPage/itNav.vue"
-import itInfo from "../components/mainPage/itInfo.vue"
-import department from "../components/mainPage/department.vue"
-import aboutIt from "../components/mainPage/aboutIt.vue"
-import historyWorks from "../components/mainPage/historyWorks.vue"
-import historyTeam from "../components/mainPage/historyTeam.vue"
-import bottomBlock from "../components/mainPage/bottomBlock.vue"
+import itNav from "../components/mainPage/itNav.vue";
+import itInfo from "../components/mainPage/itInfo.vue";
+import department from "../components/mainPage/department.vue";
+import aboutIt from "../components/mainPage/aboutIt.vue";
+import historyWorks from "../components/mainPage/historyWorks.vue";
+import historyTeam from "../components/mainPage/historyTeam.vue";
+import bottomBlock from "../components/mainPage/bottomBlock.vue";
 export default {
   components: {
     itNav,
@@ -80,10 +79,13 @@ export default {
 
   created() {},
   methods: {},
-}
+};
 </script>
 
 <style scoped>
+*{
+  overflow-x: hidden;
+}
 .mainPage {
   width: 100vw;
   overflow: hidden;
@@ -188,7 +190,7 @@ export default {
   margin-top: 15vw;
 }
 /* 底部栏部分 */
-.bottomBlock{
+.bottomBlock {
   margin-top: 5vw;
 }
 </style>

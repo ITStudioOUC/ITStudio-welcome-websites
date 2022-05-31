@@ -1,5 +1,5 @@
 <template>
-<div class="bigBg">
+<div class="bigBg"  @mousewheel.prevent>
   <div class="bgWorksShow">
     <router-link to="/mainPage">
       <div class="returnBtn">
@@ -15,7 +15,6 @@
           class="dates"
           ref="dates"
           @mousewheel="scrollDateList($event)"
-          @touchmove.prevent
         >
           <li
             v-for="(item, index) in dateORwork"
@@ -46,11 +45,11 @@
             :key="index"
           >
             <div class="work" v-for="(item2, index) in item1.data" :key="index">
-              <div class="workName">
+              <div class="workName"  @mouseenter="showWorkPic(item2.img)" @mouseleave="removeWorkPic()">
                 <div>{{ item2.name }}</div>
                 <div>{{ item2.description }}</div>
               </div>
-              <div class="workPic">
+              <div class="workPic"  v-show="isShowWorkPic" >
                 <img :src="item2.img" style="object-fit: cover" alt="" />
               </div>
             </div>
@@ -65,6 +64,8 @@ export default {
   name: "worksShow",
   oldID: 0,
   components: "",
+  isShowWorkPic: false, //控制图片显现
+  pic_addition: "",
   data() {
     return {
       oldID: 0,
@@ -228,13 +229,22 @@ export default {
       this.$data.active = id;
     },
     changeWorkBox(id) {
-      this.$refs.works.style.transform = `translateY(${-44 * id}vw)`;
+      this.$refs.works.style.transform = `translateY(${-43 * id}vw)`;
     },
     moveDateList(id) {
       this.$refs.dates.style.transform = `translateY(${-3.88 * id}vw)`;
       this.$data.bigWordID = id;
     },
-  },
+    showWorkPic(pic_addition) {
+       if(pic_addition != " ") {
+          this.$data.isShowWorkPic = true;
+       }
+     }, 
+     removeWorkPic() {
+          this.$data.isShowWorkPic = false;
+       
+    },
+   },
 };
 </script>
 <style scoped>
@@ -253,7 +263,7 @@ a {
 .bgWorksShow {
   overflow: hidden;
   width: 100vw;
-  height: 50.8vw;
+  height: 47.8vw;
   background-color: transparent;
   /* background-repeat: no-repeat; */
 }
@@ -303,26 +313,26 @@ a {
 .showBigBox {
   display: flex;
   width: 82.29vw;
-  height: 44vw;
+  height: 43vw;
   margin: 1.04vw 8.85vw 2.71vw 8.85vw;
   overflow: hidden;
 }
 .timeLine {
   width: 22.76vw;
-  height: 44vw;
+  height: 43vw;
   /* 56 50 */
   margin: 0 9vw 0 0;
   /* font-size: 200px; */
   font-family: Microsoft YaHei UI;
   font-weight: bold;
   color: #634f49;
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 .dates {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 24vw;
+  width: 23vw;
   margin-top: 14.15vw;
   font-size: 1.88vw;
   font-family: Microsoft YaHei UI;
@@ -364,7 +374,7 @@ a {
   height: 9.42vw;
   margin: 1vw auto;
   line-height: 9.42vw;
-  font-size: 9.42vw;
+  font-size: 9.3vw;
   font-family: Microsoft YaHei UI;
   font-weight: bold;
   transition: 2s;
@@ -379,7 +389,7 @@ a {
 }
 /* ----------------------- */
 .worksBigBox {
-  height: 44vw;
+  height: 43vw;
   width: 50.14vw;
   overflow: hidden;
 } /**边界 */
@@ -392,7 +402,7 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 44vw;
+  height: 43vw;
   width: 50.14vw;
   overflow: hidden; /**防止网页加载使下图片显现超出 */
 } /**一个内容盒子 */
@@ -440,18 +450,19 @@ a {
   border-radius: 20px;
   transition: 0.3s;
   /* 调节透明度使图片显现 */
-  opacity: 0;
+  /* opacity: 0; */
   transition: opacity 0.5s linear;
 }
 .workPic > img {
   width: 33.7vw;
   height: 18.07vw;
 }
-.workName:hover ~ .workPic {
+/* .workName:hover ~ .workPic {
   opacity: 1;
-  /* 调节透明度使图片显现 */
+  
   display: block;
-}
+} */
+/* 调节透明度使图片显现 */
 .work .workName:hover div:nth-of-type(1) {
   background: linear-gradient(
     90deg,
