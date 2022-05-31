@@ -1,5 +1,5 @@
 <template>
-<div class="bigBg">
+<div class="bigBg" @mousewheel.prevent>
   <div class="bgMembersInfo">
     <router-link to="/mainPage">
       <div class="returnBtn">
@@ -146,11 +146,11 @@ export default {
       isShowBottomArrow: false,
       dateORdepartment_length: 0, //用於判斷年份滾動
       memberArray_length: 0, //用於判斷成員滾動
-      memberArray_translate: 0, //用於判斷成員滾動
       memberArray_id: 0, //定位memberArray_bg数组
       node: 0, //决定平移距离
       oldBuMenShu: 0,
       newBuMenShu: 0, //记录部门
+      page: 0, //记录最大盒子数组的下标，以便重置成员数组滚动
       memberArrays: [], //存放盒子数组
       memberArrayStore: [],
       departments: [],
@@ -604,17 +604,21 @@ export default {
     }, //动态年份获取
     setType(TYPE) {
       this.$data.type = TYPE;
+      this.memberArrays[this.$data.page].style.transform = `translateY(${-36 * 0}vw)`;
+      // 重置成员滚动
     }, //动态部门获取
     changeDateFontSize(id) {
       this.$data.active = id;
     }, //时间轴切换函数待修改：取消滚动，直接遍历出整个年份，然后先完成点击事件，点击放大切换，后面在完成鼠标滚轮选择年份
     changeTypeFontSize(id, TYPE) {
+      console.log("id",id);
       this.$data.flag = id;
       if (id != TYPE) this.setType(TYPE);
       //  防止部门与获取成员不符->>改用其他方法
     },
     // 移动时间轴：高度加边距 ， 同时要初始化成员盒子的滚动，使其变为原来位置
     moveDateList(id) {
+      this.$data.page = id;//此时最大数组的下标，以便后面点击部门切换时的成员滚动重置
       this.$refs.dates.style.transform = `translateY(${-3.88 * id}vw)`;
       this.$data.bigWordID = id;
       this.$data.node = 0;
@@ -650,6 +654,7 @@ a {
 .bigBg {
   width: 100vw;
   height: 100vh;
+  padding: 0 0 1.5vw 0;
   display: flex;
   align-items: center;
   background-attachment: fixed;
@@ -714,19 +719,19 @@ background-color: transparent;
 .showBigBox {
   display: flex;
   width: 88.29vw;
-  height: 44vw;
+  height: 43vw;
   margin: 1.04vw 4.85vw 2.71vw 6.85vw;
   overflow: hidden;
 }
 .timeLine {
   width: 24.76vw;
-  height: 44vw;
+  height: 42vw;
   margin: 0 0 0 0;
   /* font-size: 200px; */
   font-family: Microsoft YaHei UI;
   font-weight: bold;
   color: #634f49;
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 .dates {
   display: flex;
@@ -734,7 +739,7 @@ background-color: transparent;
   align-items: center;
   width: 24.76vw;
   /* height: 29.95px; */
-  margin-top: 14.15vw;
+  margin-top: 15vw;
   font-size: 1.88vw;
   font-family: Microsoft YaHei UI;
   font-weight: bold;
@@ -797,7 +802,7 @@ background-color: transparent;
   display: flex;
   flex-direction: column;
   width: 62.58vw;
-  height: 44vw;
+  height: 43vw;
   overflow: hidden;
   /* transition: 12s; */
 }

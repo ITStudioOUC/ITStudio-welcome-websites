@@ -1,5 +1,5 @@
 <template>
-  <div class="bigBg">
+  <div class="bigBg" ref = "bigBg" @mousewheel.prevent>
     <div class="bgInfo">
       <router-link to="/mainPage">
         <div class="returnBtn">
@@ -27,10 +27,10 @@
               <div class="infoContentWord">
                 <div class="Chinese">{{ item.department_cn }}</div>
                 <div class="English">{{ item.department_en }}</div>
-                <div class="departmentInformation">{{ item.introduction }}</div>
-                <div class="departmentTask">{{ item.content }}</div>
+                <div class="departmentInformation">{{ item.content }}</div>
+                <div class="departmentTask">{{ item.introduction }}</div>
               </div>
-              <!--左边-->
+              <!--左边-->~
               <div class="departmentPic">
                 <img
                   :src="item.background"
@@ -181,7 +181,7 @@ export default {
 .bigBg {
   width: 100vw;
   height: 100vh;
-  padding: 2.34vw 0 0 0;
+  padding: 0 0 1vw 0;
   display: flex;
   align-items: center;
   background-attachment: fixed;
@@ -189,9 +189,8 @@ export default {
   background-size: cover;
 }
 .bgInfo {
-  overflow: hidden;
   width: 100vw;
-  height: 56.25vw;
+  height: 50.20vw;
   /* height: 100vh; */
   background-color: transparent;
   /* background-repeat: no-repeat; */
@@ -253,8 +252,8 @@ export default {
   pointer-events: none;
 
   width: 86.25vw;
-  height: 49.38vw;
-  margin: 0 1.15vw 6.09vw 7.66vw;
+  height: 45.38vw;
+  margin: 0 1.15vw 4.09vw 7.66vw;
   background-color: transparent;
   transition: 0.3s;
 }
@@ -262,7 +261,7 @@ export default {
   overflow: hidden;
   width: 67.92vw;
   height: 33.75vw;
-  margin: 1.93vw 0vw 4.69vw 2.76vw;
+  margin: 0.5vw 0vw 2.69vw 2.76vw;
   padding: 1.86vw 2.08vw 6.2vw 3.96vw;
   z-index: 5;
 
@@ -367,7 +366,7 @@ height: 24px; */
   text-align: center;
   line-height: 5.26vw;
   font-size: 1.10vw;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: SimHei;
   font-weight: bold;
   color: #666666;
   cursor: pointer;
