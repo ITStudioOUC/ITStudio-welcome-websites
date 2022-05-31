@@ -180,11 +180,11 @@ export default {
     //函数防抖
      debounce(func, wait) {
       let timeout;
-      if (timeout) clearTimeout(timeout);
+      
       return function () {
         let context = this;
         let args = arguments;
-        
+        if (timeout) clearTimeout(timeout);
         timeout = setTimeout(() => {
           func.apply(context, args);
         }, wait);

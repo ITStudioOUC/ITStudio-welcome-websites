@@ -140,7 +140,7 @@ export default {
       flag: 0,
       date: 0, //从后端获取
       typeID: 1, //部门id
-      year: 2022,
+      year: 2021,
       type: 1,
       isShowTopArrow: false,
       isShowBottomArrow: false,
@@ -375,7 +375,7 @@ export default {
     this.$http
       .get("/member/", {
         params: {
-          years: 2022,
+          years: 2021,
           department_id: 1,
         },
       })
@@ -611,7 +611,6 @@ export default {
       this.$data.active = id;
     }, //时间轴切换函数待修改：取消滚动，直接遍历出整个年份，然后先完成点击事件，点击放大切换，后面在完成鼠标滚轮选择年份
     changeTypeFontSize(id, TYPE) {
-      console.log("id",id);
       this.$data.flag = id;
       if (id != TYPE) this.setType(TYPE);
       //  防止部门与获取成员不符->>改用其他方法
