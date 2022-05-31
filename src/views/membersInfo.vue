@@ -366,7 +366,7 @@ export default {
 
       .then((res) => {
         this.$data.dateORdepartment = res.data.data;
-        if (this.$data.dateORdepartment.length == 12) {
+        if (this.$data.dateORdepartment.length == 11) {
           this.$data.departments = this.$data.dateORdepartment;
         }
         this.$data.dateORdepartment_length = res.data.data.length;
@@ -477,7 +477,7 @@ export default {
         // console.log("我push了一个", el);
         this.memberArrayStore.push(el);
         // 为什么每滚动一次就要重新获取
-        if (this.memberArrayStore.length == 12) {
+        if (this.memberArrayStore.length == 11) {
           this.memberArrays = this.memberArrayStore;
           this.memberArrayStore = [];
           this.RefFlag = true;

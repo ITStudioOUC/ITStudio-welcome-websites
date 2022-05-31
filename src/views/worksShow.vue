@@ -45,8 +45,8 @@
             :key="index"
           >
             <div class="work" v-for="(item2, index) in item1.data" :key="index">
-              <div class="workName"  @mouseenter="showWorkPic(item2.img)" @mouseleave="removeWorkPic()">
-                <div>{{ item2.name }}</div>
+              <div class="workName" >
+                <div @mouseenter="showWorkPic(item2.img)" @mouseleave="removeWorkPic()">{{ item2.name }}</div>
                 <div>{{ item2.description }}</div>
               </div>
               <div class="workPic"  v-show="isShowWorkPic" >
@@ -64,11 +64,10 @@ export default {
   name: "worksShow",
   oldID: 0,
   components: "",
-  isShowWorkPic: false, //控制图片显现
-  pic_addition: "",
   data() {
     return {
       oldID: 0,
+      isShowWorkPic: false, //控制图片显现
       dateORwork: [
         {
           date: "2004",
@@ -181,10 +180,11 @@ export default {
     //函数防抖
      debounce(func, wait) {
       let timeout;
+      if (timeout) clearTimeout(timeout);
       return function () {
         let context = this;
         let args = arguments;
-        if (timeout) clearTimeout(timeout);
+        
         timeout = setTimeout(() => {
           func.apply(context, args);
         }, wait);
@@ -236,7 +236,7 @@ export default {
       this.$data.bigWordID = id;
     },
     showWorkPic(pic_addition) {
-       if(pic_addition != " ") {
+       if(pic_addition != null) {
           this.$data.isShowWorkPic = true;
        }
      }, 
@@ -333,17 +333,17 @@ a {
   flex-direction: column;
   align-items: center;
   width: 23vw;
-  margin-top: 14.15vw;
+  margin-top: 15vw;
   font-size: 1.88vw;
   font-family: Microsoft YaHei UI;
   font-weight: bold;
   color: #634f49;
   overscroll-behavior: contain;
+  transition: 0.5s;
 }
 
 /* -------------------- */
 .dates > li {
-  transition: 0.8s;
   cursor: pointer;
 }
 .smallWord {
@@ -355,6 +355,7 @@ a {
   line-height: 1.88vw;
   font-size: 1.88vw;
   color: #634f49;
+  transition: 1.2s;
 }
 .smallWord > .year {
   text-align: center;
@@ -377,7 +378,7 @@ a {
   font-size: 9.3vw;
   font-family: Microsoft YaHei UI;
   font-weight: bold;
-  transition: 2s;
+  transition: 1.2s;
   background: linear-gradient(
     90deg,
     rgba(244, 209, 84, 0.74),
@@ -396,7 +397,7 @@ a {
 .workBox {
   /* height: 56.56vw; */
   width: 50.14vw;
-  transition: 0.8s;
+  transition: 1s;
 } /**整体盒子 */
 .contentBox {
   display: flex;
@@ -463,7 +464,7 @@ a {
   display: block;
 } */
 /* 调节透明度使图片显现 */
-.work .workName:hover div:nth-of-type(1) {
+/* .work .workName:hover div:nth-of-type(1) {
   background: linear-gradient(
     90deg,
     rgba(244, 209, 84, 0.74),
@@ -473,5 +474,5 @@ a {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-}
+} */
 </style>
