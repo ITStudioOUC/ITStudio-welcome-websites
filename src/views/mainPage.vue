@@ -85,6 +85,7 @@ export default {
 <style scoped>
 *{
   overflow-x: hidden;
+  overflow-y: hidden;
 }
 .mainPage {
   width: 100vw;
