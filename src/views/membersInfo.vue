@@ -742,6 +742,7 @@ background-color: transparent;
   font-family: Microsoft YaHei UI;
   font-weight: bold;
   color: #634f49;
+  transition: 0.5s;
 }
 
 /* -------------------- */
@@ -758,7 +759,7 @@ background-color: transparent;
   line-height: 1.88vw;
   font-size: 1.88vw;
   color: #634f49;
-  /* transition: 0.3s; */
+  transition: 1.2s;
 }
 .smallWord > .year {
   text-align: center;
@@ -793,6 +794,7 @@ background-color: transparent;
   );
   background-clip: text;
   color: transparent;
+    transition: 1.2s;
 }
 /* -- */
 
