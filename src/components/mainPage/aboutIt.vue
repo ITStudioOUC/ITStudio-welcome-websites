@@ -105,9 +105,11 @@ export default {
 .aboutIt {
   display: flex;
   justify-content: space-between;
-  width: 81.98vw;
+  width: 84.98vw;
   height: 44.01vw;
-  margin-bottom: 5vw;
+  padding-bottom: 5vw;
+  padding-right: 3vw;
+  padding-top: 2vw;
 }
 .contentBox {
   width: 26.04vw;

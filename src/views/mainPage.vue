@@ -179,7 +179,8 @@ export default {
 }
 /* 关于爱特部分 */
 .aboutItBox {
-  margin-top: 13vw;
+  margin-top: 4vw;
+  
 }
 /* 历史作品部分 */
 .historyWorksBlock {

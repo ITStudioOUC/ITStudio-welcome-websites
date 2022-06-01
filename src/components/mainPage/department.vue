@@ -57,6 +57,7 @@ export default {
   background: #ffffff;
   box-shadow: 0.52vw 1.35vw 2.76vw 0.47vw rgba(0, 0, 0, 0.38);
   border-radius: 1.56vw;
+  margin-bottom: 7vw;
 }
 .line {
   width: 12.14vw;
