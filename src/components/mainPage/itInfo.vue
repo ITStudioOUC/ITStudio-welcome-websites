@@ -57,7 +57,7 @@ export default {
   align-items: flex-end;
   margin: 0 auto;
   width: 80vw;
-  height: 34.9vw;
+  height: 38vw;
 }
 .infoText {
   width: 42vw;
