@@ -37,7 +37,7 @@
       </div>
       <!-- 对应内容 -->
       <div class="info">
-        <ul ref="infos" style="transition: 0.5s">
+        <ul class="memberList" ref="infos" style="transition: 0.5s">
           <li>
             <div
               class="infoBigBox"
@@ -140,7 +140,7 @@ export default {
       flag: 0,
       date: 0, //从后端获取
       typeID: 1, //部门id
-      year: 2022,
+      year: 2021,
       type: 1,
       isShowTopArrow: false,
       isShowBottomArrow: false,
@@ -375,7 +375,7 @@ export default {
     this.$http
       .get("/member/", {
         params: {
-          years: 2022,
+          years: 2021,
           department_id: 1,
         },
       })
@@ -605,13 +605,12 @@ export default {
     setType(TYPE) {
       this.$data.type = TYPE;
       this.memberArrays[this.$data.page].style.transform = `translateY(${-36 * 0}vw)`;
-      // 重置成员滚动
+      // 重置成员滚动dates
     }, //动态部门获取
     changeDateFontSize(id) {
       this.$data.active = id;
     }, //时间轴切换函数待修改：取消滚动，直接遍历出整个年份，然后先完成点击事件，点击放大切换，后面在完成鼠标滚轮选择年份
     changeTypeFontSize(id, TYPE) {
-      console.log("id",id);
       this.$data.flag = id;
       if (id != TYPE) this.setType(TYPE);
       //  防止部门与获取成员不符->>改用其他方法
@@ -654,7 +653,6 @@ a {
 .bigBg {
   width: 100vw;
   height: 100vh;
-  padding: 0 0 1.5vw 0;
   display: flex;
   align-items: center;
   background-attachment: fixed;
@@ -664,7 +662,7 @@ a {
 .bgMembersInfo {
   overflow: hidden;
   width: 100vw;
-  height: 50.8vw;
+  height: 47.8vw;
   /* 可以铺满 */
 background-color: transparent;
   /* background-repeat: no-repeat; */
@@ -803,8 +801,12 @@ background-color: transparent;
   flex-direction: column;
   width: 62.58vw;
   height: 43vw;
+  margin: -2vw 0 0 0;
   overflow: hidden;
   /* transition: 12s; */
+}
+.memberlist{
+
 }
 .infoBigBox {
   display: flex;

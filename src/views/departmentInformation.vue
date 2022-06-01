@@ -181,7 +181,7 @@ export default {
 .bigBg {
   width: 100vw;
   height: 100vh;
-  padding: 0 0 1vw 0;
+  /* padding: 0 0 1vw 0; */
   display: flex;
   align-items: center;
   background-attachment: fixed;
@@ -190,7 +190,7 @@ export default {
 }
 .bgInfo {
   width: 100vw;
-  height: 50.20vw;
+  height: 47.8vw;
   /* height: 100vh; */
   background-color: transparent;
   /* background-repeat: no-repeat; */
@@ -198,7 +198,7 @@ export default {
 .returnBtn {
   display: flex;
   justify-content: center;
-  margin: 2.34vw 0 0.83vw 1.72vw;
+  margin: 1.3vw 0 0.83vw 1.72vw;
   width: 11.2vw;
   height: 2.55vw;
   background: #ffffff;
@@ -260,8 +260,8 @@ export default {
 .infoPage {
   overflow: hidden;
   width: 67.92vw;
-  height: 33.75vw;
-  margin: 0.5vw 0vw 2.69vw 2.76vw;
+  height: 33.2vw;
+  margin: 0.2vw 0vw 2.69vw 2.76vw;
   padding: 1.86vw 2.08vw 6.2vw 3.96vw;
   z-index: 5;
 
@@ -320,7 +320,7 @@ export default {
   /* width: 245px; */
   line-height: 2.50vw;
   height: 2.50vw;
-  font-size: 2.5vw;
+  font-size: 2.2vw;
   font-family: Microsoft YaHei UI;
   font-weight: bold;
   color: #56433d;
@@ -419,28 +419,28 @@ height: 24px; */
   /* 游戏 */
 }
 .infoBigbox div:nth-of-type(1) .infoBookmark {
-  margin-top: calc(5.26vw);
+  margin-top: calc(4.2vw);
   margin-left: -0.52vw;
   border: 0.1vw solid #fde1a3;
 }
 .infoBigbox div:nth-of-type(2) .infoBookmark {
-  /* margin-top: calc(5.26vw + calc(7.19vw * calc(n-1))); */
-  margin-top: calc(5.26vw + 7.19vw * 1);
+  /* margin-top: calc(4.2vw + calc(7.19vw * calc(n-1))); */
+  margin-top: calc(4.2vw + 7.19vw * 1);
   margin-left: -0.52vw;
   border: 0.1vw solid #a1d8ff;
 }
 .infoBigbox div:nth-of-type(3) .infoBookmark {
-  margin-top: calc(5.26vw + 7.19vw * 2);
+  margin-top: calc(4.2vw + 7.19vw * 2);
   margin-left: -0.52vw;
   border: 0.1vw solid #ffbfd0;
 }
 .infoBigbox div:nth-of-type(4) .infoBookmark {
-  margin-top: calc(5.26vw + 7.19vw * 3);
+  margin-top: calc(4.2vw + 7.19vw * 3);
   margin-left: -0.52vw;
   border: 0.1vw solid #ff7b61;
 }
 .infoBigbox div:nth-of-type(5) .infoBookmark {
-  margin-top: calc(5.26vw + 7.19vw * 4);
+  margin-top: calc(4.2vw + 7.19vw * 4);
   margin-left: -0.52vw;
   border: 0.1vw solid #96ffa2;
 }
