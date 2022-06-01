@@ -37,7 +37,7 @@
       </div>
       <!-- 对应内容 -->
       <div class="info">
-        <ul ref="infos" style="transition: 0.5s">
+        <ul class="memberList" ref="infos" style="transition: 0.5s">
           <li>
             <div
               class="infoBigBox"
@@ -605,7 +605,7 @@ export default {
     setType(TYPE) {
       this.$data.type = TYPE;
       this.memberArrays[this.$data.page].style.transform = `translateY(${-36 * 0}vw)`;
-      // 重置成员滚动
+      // 重置成员滚动dates
     }, //动态部门获取
     changeDateFontSize(id) {
       this.$data.active = id;
@@ -653,7 +653,6 @@ a {
 .bigBg {
   width: 100vw;
   height: 100vh;
-  padding: 0 0 1.5vw 0;
   display: flex;
   align-items: center;
   background-attachment: fixed;
@@ -663,7 +662,7 @@ a {
 .bgMembersInfo {
   overflow: hidden;
   width: 100vw;
-  height: 50.8vw;
+  height: 47.8vw;
   /* 可以铺满 */
 background-color: transparent;
   /* background-repeat: no-repeat; */
@@ -802,8 +801,12 @@ background-color: transparent;
   flex-direction: column;
   width: 62.58vw;
   height: 43vw;
+  margin: -2vw 0 0 0;
   overflow: hidden;
   /* transition: 12s; */
+}
+.memberlist{
+
 }
 .infoBigBox {
   display: flex;
