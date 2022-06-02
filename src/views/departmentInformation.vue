@@ -129,11 +129,10 @@ export default {
       deep: true,
     },
   },
-// mounted() {
-//     window.onload=function(){
-//       this.$data.changePage(0);
-//     }
-// },
+mounted() {
+    //&nbsp;切换页面时滚动条自动滚动到顶部
+    window.scrollTo(0,0);
+},
   computed: {
     departmentInfo1: function () {
       return this.sortKey(this.departmentInfo, "id"); //调用排序方法

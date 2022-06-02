@@ -425,6 +425,8 @@ export default {
     },
   },
   mounted() {
+    //&nbsp;切换页面时滚动条自动滚动到顶部
+    window.scrollTo(0,0);
     // document.addEventListener("touchmove",mo,false);
     //监听鼠标滚动事件
     window.addEventListener(
@@ -902,6 +904,7 @@ background-color: transparent;
   padding: 0.3vw 0 0 0;
   text-align: center;
   animation: moveArrowTop 0.75s ease-out 0.5s infinite alternate;
+  cursor: pointer;
 }
 .arrowTB1 > img {
   width: 2.08vw;
@@ -918,6 +921,7 @@ background-color: transparent;
   padding: 0 0 0.54vw 0;
   animation: Bottom 1s ease-out 0.5s infinite alternate;
   animation: moveArrowBottom 0.75s ease-out 0.5s infinite alternate;
+  cursor: pointer;
 }
 .arrowTB2 > img {
   /* display: none; */
