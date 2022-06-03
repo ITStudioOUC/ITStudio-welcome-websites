@@ -163,6 +163,8 @@ export default {
       });
   },
   mounted() {
+    //&nbsp;切换页面时滚动条自动滚动到顶部
+    window.scrollTo(0,0);
     //监听鼠标滚动事件
    window.addEventListener(
       "mousewheel",
@@ -175,7 +177,6 @@ export default {
         false
       );
   },
-
   methods: {
     //函数防抖
      debounce(func, wait) {
