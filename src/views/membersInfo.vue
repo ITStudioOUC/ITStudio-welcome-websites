@@ -1000,6 +1000,7 @@ overflow-y: scroll; /*总是显示纵向滚动条*/
   overflow: hidden;
 }
 .memberPic > img {
+  object-fit: cover;
   width: 8.33vw;
   height: 8.33vw;
 }
