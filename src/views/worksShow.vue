@@ -46,10 +46,11 @@
           >
             <div class="work" v-for="(item2, index) in item1.data" :key="index">
               <div class="workName" >
-                <div @mouseenter="showWorkPic(item2.img)" @mouseleave="removeWorkPic()">{{ item2.name }}</div>
+                <div @mouseenter="showWorkPic(item2.img, index)" @mouseleave="removeWorkPic()">{{ item2.name }}</div>
                 <div>{{ item2.description }}</div>
               </div>
-              <div class="workPic"  v-show="isShowWorkPic" >
+              <div class="workPic" :class="index == isShowWorkPic ? 'show' : 'unshow'"  >
+                <!--控制图片显现 -->
                 <img :src="item2.img" style="object-fit: cover" alt="" />
               </div>
             </div>
@@ -67,7 +68,7 @@ export default {
   data() {
     return {
       oldID: 0,
-      isShowWorkPic: false, //控制图片显现
+      isShowWorkPic: -1, //控制图片显现：-1不显现，
       dateORwork: [
         {
           date: "2004",
@@ -236,14 +237,16 @@ export default {
       this.$refs.dates.style.transform = `translateY(${-3.88 * id}vw)`;
       this.$data.bigWordID = id;
     },
-    showWorkPic(pic_addition) {
+    showWorkPic(pic_addition, id) {
        if(pic_addition != null) {
-          this.$data.isShowWorkPic = true;
+          this.$data.isShowWorkPic = id;
        }
+      //  else if(pic_addition == null) {
+      //     this.$data.isShowWorkPic = false;
+      //  }
      }, 
      removeWorkPic() {
-          this.$data.isShowWorkPic = false;
-       
+          this.$data.isShowWorkPic = -1;
     },
    },
 };
@@ -424,10 +427,23 @@ a {
 .workName > div {
   cursor: pointer;
 }
-.work {
-  display: inline-block;
+
+.workName {
+  display: flex;
+  flex-direction: column;
+}
+/* 控制图片显现 */
+.show {
+  display: block;
+}
+.unshow {
+  display: none;
 }
 /**下为作品名的样式 */
+.workName div:nth-of-type(1) {
+  width: 17.6vw;
+  transition: all 0.3s;
+}
 .workName div:nth-of-type(2) {
   width: 40vw;
   font-size: 1.5vw;
@@ -435,13 +451,12 @@ a {
   font-weight: bold;
   transition: 0.5s;
   cursor: pointer;
-  transition: all 0.3s;
   margin-top: 1.5vw;
 }
 
 .workPic {
   position: absolute;
-
+cursor: pointer;
   left: 14vw;
   top: -5vw;
   width: 33.7vw;
