@@ -13,8 +13,20 @@
       </p>
     </div>
     <div class="btnBox">
-      <div id="Btn" class="apply" data-aos="zoom-in-up">立即报名</div>
-      <div id="Btn" class="query" data-aos="zoom-in-up">进度查询</div>
+      <div
+        id="Btn"
+        class="sendBarrage"
+        data-aos="zoom-in-up"
+        @click="toRootIndex()"
+      >
+        发送弹幕
+      </div>
+      <div id="Btn" class="apply" data-aos="zoom-in-up" @click="toLogOn()">
+        立即报名
+      </div>
+      <div id="Btn" class="query" data-aos="zoom-in-up" @click="toQuery()">
+        进度查询
+      </div>
     </div>
   </div>
 </template>
@@ -22,6 +34,23 @@
 <script>
 export default {
   name: "itInfo",
+  methods: {
+    toRootIndex() {
+      this.$router.push({
+        path: "/",
+      });
+    },
+    toLogOn() {
+      this.$router.push({
+        path: "/logOn",
+      });
+    },
+    toQuery() {
+      this.$router.push({
+        path: "/Query",
+      });
+    },
+  },
 };
 </script>
 
@@ -129,9 +158,11 @@ p {
   text-align: center;
   cursor: pointer;
   margin-bottom: 2.14vw;
-  transition: transform 0.3s;
+  transition: 0.3s;
 }
-.btnBox >div:hover{
+.btnBox > div:hover {
   transform: scale(1.1);
+  box-shadow: 0.1vw 0.2vw 1.08vw 0px rgba(2, 0, 0, 0.1);
+
 }
 </style>

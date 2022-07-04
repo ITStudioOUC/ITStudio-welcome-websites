@@ -658,7 +658,7 @@ a {
   display: flex;
   align-items: center;
   background-attachment: fixed;
-  background-image: url(../assets/background3.png);
+  background-image: url(https://cdn.lmark.cc/it/static/background3.png);
   background-size: cover;
 }
 .bgMembersInfo {

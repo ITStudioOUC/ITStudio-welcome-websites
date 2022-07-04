@@ -4,7 +4,7 @@
   <div class="rootIndex">
     <!-- 背景图 -->
     <div class="bg">
-      <img src="../assets/img/rootBg.png" alt="" />
+      <img :src="rootBg" alt="" />
     </div>
     <!-- 内容 -->
     <div class="content">
@@ -86,6 +86,7 @@ export default {
       barrageTimer: null, //创建弹幕的定时器
       oldPosition: 50, //上次弹幕的位置
       enterLoop: "1111",
+      rootBg:require("../assets/img/rootBg.png")
     }
   },
   created() {
@@ -110,26 +111,6 @@ export default {
         })
       }
     }, 2500)
-    // 事件委托为动态生成的dom绑定事件
-    // let barrageContent = this.$refs.barrageContent
-    //鼠标进入
-    // barrageContent.addEventListener("mouseenter", (e) => {
-    //   let target = e.target
-    //  if (target.nodeName == "SPAN") {
-    //     console.log(target)
-    //     target.style.WebkitAnimationPlayState = "paused"
-    //     target.style.animationPlayState = "paused"
-    //   }
-    // })
-    //鼠标离开
-    // barrageContent.addEventListener("mouseleave", (e) => {
-    //   let target = e.target
-    //   if (target.nodeName == "SPAN") {
-    //     console.log(target)
-    //     target.style.WebkitAnimationPlayState = "running"
-    //     target.style.animationPlayState = "running"
-    //   }
-    // })
   },
   unmounted() {
     //清除指定定时器
@@ -402,10 +383,13 @@ export default {
   font-weight: bold;
   color: #ffffff;
   cursor: pointer;
-  transition: transform 0.5s;
+  transition:0.5s;
 }
 .enterBtn:hover {
   transform: scale(1.2);
+  box-shadow: 0.1vw 0.2vw 1.08vw 0px rgba(2, 0, 0, 0.1);
+
+
 }
 .arrowBox {
   position: relative;

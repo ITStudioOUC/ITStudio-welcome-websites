@@ -5,21 +5,21 @@
     <div class="bgBlock">
       <!-- 顶部背景图 -->
       <div class="topBg">
-        <img class="topBgImg" src="../assets/img/topBg.jpg" alt="" />
+        <img class="topBgImg" :src="topBgImg" alt="" />
       </div>
       <!-- 下方背景图 -->
       <div class="bottomBg">
         <div class="circleBox yellowBox">
-          <img class="yellow" src="../assets/img/yellow.png" alt="" />
+          <img class="yellow" :src="yellow" alt="" />
         </div>
         <div class="circleBox blueBox">
-          <img class="blue" src="../assets/img/blue.png" alt="" />
+          <img class="blue" :src="blue" alt="" />
         </div>
         <div class="circleBox redBox">
-          <img class="red" src="../assets/img/red.png" alt="" />
+          <img class="red" :src="red" alt="" />
         </div>
         <div class="circleBox greenBox">
-          <img class="green" src="../assets/img/green.png" alt="" />
+          <img class="green" :src="green" alt="" />
         </div>
       </div>
     </div>
@@ -76,14 +76,22 @@ export default {
     bottomBlock,
   },
   name: "mainPage",
-
+  data() {
+    return {
+      topBgImg: require("../assets/img/topBg.jpg"),
+      yellow: require("../assets/img/yellow.png"),
+      blue: require("../assets/img/blue.png"),
+      red: require("../assets/img/red.png"),
+      green: require("../assets/img/green.png"),
+    };
+  },
   created() {},
   methods: {},
 };
 </script>
 
 <style scoped>
-*{
+* {
   overflow-x: hidden;
   overflow-y: hidden;
 }
@@ -181,7 +189,6 @@ export default {
 /* 关于爱特部分 */
 .aboutItBox {
   margin-top: 4vw;
-  
 }
 /* 历史作品部分 */
 .historyWorksBlock {

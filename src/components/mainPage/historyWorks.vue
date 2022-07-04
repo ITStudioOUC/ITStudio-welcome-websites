@@ -2,7 +2,7 @@
 <template>
   <div class="historyWorks">
     <div class="imgBox">
-      <img src="../../assets/img/works.png" alt="" />
+      <img :src="works" alt="" />
     </div>
     <div class="textBox">
       <div class="titleBox">
@@ -24,6 +24,11 @@
 <script>
 export default {
   name: "historyWorks",
+  data(){
+    return {
+      works:require("../../assets/img/works.png")
+    }
+  },
 }
 </script>
 

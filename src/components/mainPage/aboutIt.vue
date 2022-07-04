@@ -24,25 +24,6 @@
         </div>
       </el-carousel-item>
     </el-carousel>
-    <!-- <div class="slideshow">
-      <ul ref="ul">
-        <li ref="li" v-for="(item, index) in slideshowList" :key="index">
-          <div class="imgBox">
-            <img :src="item.imgSrc" alt="" />
-          </div>
-          <div class="textBox">
-            <h3 class="partTitle">{{ item.title }}</h3>
-            <p class="content">{{ item.content }}</p>
-          </div>
-        </li>
-      </ul>
-      <span class="left" @click="prePage()">
-        <img src="../../assets/img/left.png" alt="" />
-      </span>
-      <span class="right" @click="nextPage()">
-        <img src="../../assets/img/right.png" alt="" />
-      </span>
-    </div> -->
   </div>
 </template>
 
@@ -53,7 +34,7 @@ export default {
     return {
       slideshowList: [
         {
-          imgSrc: require("../../assets/img/photo.png"),
+          imgSrc:require("../../assets/img/photo.png"),
           title: "团队文化01",
           content:
             "爱特一直以凝聚和培养计算机人才为己任,发掘技术潜力,感受合作乐趣,让代码高效执行,让大家更进一步。",

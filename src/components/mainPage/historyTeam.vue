@@ -17,7 +17,7 @@
       </div>
     </div>
     <div class="imgBox">
-      <img src="../../assets/img/team.png" alt="" />
+      <img :src="team" alt="" />
     </div>
   </div>
 </template>
@@ -25,6 +25,11 @@
 <script>
 export default {
   name: "historyTeam",
+  data(){
+    return {
+      team:require("../../assets/img/team.png")
+    }
+  },
 }
 </script>
 

@@ -60,7 +60,5 @@ a {
 }
 .barrage:hover {
   animation-play-state: paused;
-  /* border: 3px solid rgba(0, 0, 0, 0.3);
-  border-radius: 10px; */
 }
 </style>
