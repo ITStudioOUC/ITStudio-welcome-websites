@@ -6,15 +6,16 @@
     </div>
     <div class="textBox">
       <div class="titleBox">
-        <h3 class="title" data-aos="fade-up">历史作品</h3>
+        <h3 class="title">历史作品</h3>
         <div class="titleBg">02</div>
       </div>
-      <div class="content" data-aos="fade-up">
+      <div class="content">
         爱特工作室相信，只有不断提高要求，延迟满足感，持续的学习和成长，才有可能不断进步，因此，爱特每年都会有新的作品产生。
       </div>
       <div class="more" id="more">
-        <span data-aos="fade-up"
-          ><router-link class="more_btn" to="/worksShow">了解更多</router-link><img class="arrow" src="../../assets/img/arrow_r.png" alt=""
+        <span
+          ><router-link class="more_btn" to="/worksShow">了解更多</router-link
+          ><img class="arrow" src="../../assets/img/arrow_r.png" alt=""
         /></span>
       </div>
     </div>
@@ -24,12 +25,12 @@
 <script>
 export default {
   name: "historyWorks",
-  data(){
+  data() {
     return {
-      works:require("../../assets/img/works.png")
-    }
+      works: require("../../assets/img/works.png"),
+    };
   },
-}
+};
 </script>
 
 <style scoped>
@@ -72,7 +73,7 @@ img {
   font-size: 1.4vw;
   font-family: Microsoft YaHei UI;
   color: #4a4a4a;
-   line-height: 2.3vw;
+  line-height: 2.3vw;
 }
 #more {
   margin-bottom: 2vw;
@@ -89,9 +90,9 @@ img {
 #more .more_btn:hover {
   color: #e19f73;
 }
-#more .more_btn{
-   cursor: pointer;
-   transition: 0.3s;
+#more .more_btn {
+  cursor: pointer;
+  transition: 0.3s;
 }
 .arrow {
   width: 2vw;
@@ -106,6 +107,21 @@ img {
   }
   to {
     transform: translate(0.26vw, 0);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .content {
+    font-size: 2vw;
+    line-height: 3vw;
+  }
+  #more span {
+    font-size: 2vw;
+  }
+  .arrow {
+    width: 3vw;
+    height: 2vw;
+    margin-left: 1vw;
   }
 }
 </style>

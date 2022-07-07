@@ -4,15 +4,17 @@
   <div class="historyTeam">
     <div class="textBox">
       <div class="titleBox">
-        <h3 class="title" data-aos="fade-up">历史团队</h3>
+        <h3 class="title">历史团队</h3>
         <div class="titleBg">03</div>
       </div>
-      <div class="content" data-aos="fade-up">
-        共同的目标，良好的沟通，共同的价值观和行为规范，都是一个优秀团队不可或缺的，团队精神是一只无形的手，推动每次 项目的顺利完成。
+      <div class="content">
+        共同的目标，良好的沟通，共同的价值观和行为规范，都是一个优秀团队不可或缺的，团队精神是一只无形的手，推动每次
+        项目的顺利完成。
       </div>
       <div id="more">
-        <span data-aos="fade-up"
-          ><router-link class="more_btn" to = "/membersInfo">了解更多</router-link><img class="arrow" src="../../assets/img/arrow_r.png" alt=""
+        <span
+          ><router-link class="more_btn" to="/membersInfo">了解更多</router-link
+          ><img class="arrow" src="../../assets/img/arrow_r.png" alt=""
         /></span>
       </div>
     </div>
@@ -25,12 +27,12 @@
 <script>
 export default {
   name: "historyTeam",
-  data(){
+  data() {
     return {
-      team:require("../../assets/img/team.png")
-    }
+      team: require("../../assets/img/team.png"),
+    };
   },
-}
+};
 </script>
 
 <style scoped>
@@ -85,15 +87,15 @@ img {
   font-family: Microsoft YaHei UI;
   font-weight: bold;
   color: #515050;
- 
+
   transition: color 0.3s;
 }
 #more .more_btn:hover {
   color: #e19f73;
 }
-#more .more_btn{
-   cursor: pointer;
-   transition: 0.3s;
+#more .more_btn {
+  cursor: pointer;
+  transition: 0.3s;
 }
 .arrow {
   width: 2vw;
@@ -108,6 +110,21 @@ img {
   }
   to {
     transform: translate(0.26vw, 0);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .content {
+    font-size: 2vw;
+    line-height: 3vw;
+  }
+  #more span {
+    font-size: 2vw;
+  }
+  .arrow {
+    width: 3vw;
+    height: 2vw;
+    margin-left: 1vw;
   }
 }
 </style>

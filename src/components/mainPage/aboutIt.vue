@@ -5,10 +5,10 @@
     <!-- 左侧内容部分 -->
     <div class="contentBox">
       <div class="titleBox">
-        <div class="title" data-aos="fade-up">关于爱特</div>
+        <div class="title">关于爱特</div>
         <div class="titleBg">01</div>
       </div>
-      <p class="info" data-aos="fade-up">
+      <p class="info">
         爱特工作室成立于2002年,是一个在中国海洋大学信息科学与工程学部领导主持下,以计算机技术人才培养,网络开发为特色的技术性团体。
       </p>
     </div>
@@ -34,7 +34,7 @@ export default {
     return {
       slideshowList: [
         {
-          imgSrc:require("../../assets/img/photo.png"),
+          imgSrc: require("../../assets/img/photo.png"),
           title: "团队文化01",
           content:
             "爱特一直以凝聚和培养计算机人才为己任,发掘技术潜力,感受合作乐趣,让代码高效执行,让大家更进一步。",
@@ -52,19 +52,19 @@ export default {
             "爱特一直以凝聚和培养计算机人才为己任,发掘技术潜力,感受合作乐趣,让代码高效执行,让大家更进一步。",
         },
       ],
-    }
+    };
   },
   methods: {
     nextPage() {
-      let width = this.$refs.li.offsetWidth
-      this.$refs.ul.style.transform = "translateX(-" + width + "px)"
+      let width = this.$refs.li.offsetWidth;
+      this.$refs.ul.style.transform = "translateX(-" + width + "px)";
     },
     prePage() {
-      let width = this.$refs.li.offsetWidth
-      this.$refs.ul.style.transform = "translateX(" + width + "px)"
+      let width = this.$refs.li.offsetWidth;
+      this.$refs.ul.style.transform = "translateX(" + width + "px)";
     },
   },
-}
+};
 </script>
 
 <style scoped>
@@ -184,5 +184,25 @@ ul {
   line-height: 2vw;
   font-size: 1.25vw;
   color: #4a4a4a;
+}
+
+@media screen and (max-width: 768px) {
+  .aboutIt {
+    width: 90vw;
+    padding-bottom: 12vw;
+    padding-right: 10vw;
+    padding-top: 7vw;
+    margin-left: 8vw;
+  }
+  .info {
+    line-height: 3vw;
+    font-size: 2vw;
+    color: #4a4a4a;
+    margin-top: 4vw;
+  }
+  .contentBox {
+    margin-right: 5vw;
+    width: 30vw;
+  }
 }
 </style>

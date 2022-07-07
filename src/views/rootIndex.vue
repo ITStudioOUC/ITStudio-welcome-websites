@@ -86,120 +86,131 @@ export default {
       barrageTimer: null, //创建弹幕的定时器
       oldPosition: 50, //上次弹幕的位置
       enterLoop: "1111",
-      rootBg:require("../assets/img/rootBg.png")
-    }
+      rootBg: require("../assets/img/rootBg.png"),
+    };
   },
   created() {
     this.$http.get("/comment/").then((res) => {
-      this.barrageList = res.data.data
-    })
+      this.barrageList = res.data.data;
+    });
   },
   mounted() {
     //自动开始定时器,播放弹幕
     //创建弹幕span的定时器
     this.barrageTimer = setInterval(() => {
       if (this.barrageList.length) {
-        let first = this.barrageList.shift()
-        this.createBarrage(first)
+        let first = this.barrageList.shift();
+        this.createBarrage(first);
       } else {
         // barrageListCopy = this.barrageList
         // 弹幕播放完成后摧毁定时器
         // clearInterval(this.barrageTimer)
         //循环播放
         this.$http.get("/comment/").then((res) => {
-          this.barrageList = res.data.data
-        })
+          this.barrageList = res.data.data;
+        });
       }
-    }, 2500)
+    }, 2500);
   },
   unmounted() {
     //清除指定定时器
-    clearInterval(this.barrageTimer)
-    this.barrageTimer = null
+    clearInterval(this.barrageTimer);
+    this.barrageTimer = null;
   },
   methods: {
     // 展开弹幕
     isUnfold() {
+      var w = document.documentElement.clientWidth; //返回值不包含滚动条的宽度
       if (this.isShow) {
-        this.$refs.barrageBox.style.height = 33.85 + "vw"
-        this.$refs.enterBtn.style.transform = "translateY(-" + 2.6 + "vw)"
-        this.$refs.enterBtn.style.transform = "scale(0.8)"
+        if (w > 1200) {
+          this.$refs.barrageBox.style.height = 33.85 + "vw";
+          this.$refs.enterBtn.style.transform = "translateY(-" + 2.6 + "vw)";
+          this.$refs.enterBtn.style.transform = "scale(0.8)";
+        } else {
+          this.$refs.barrageBox.style.height = 60 + "vh";
+          this.$refs.enterBtn.style.transform = "translateY(-" + 4 + "vh)";
+          this.$refs.enterBtn.style.transform = "scale(0.9)";
+        }
       } else {
-        this.$refs.barrageBox.style.height = 15.63 + "vw"
-        this.$refs.enterBtn.style.transform = "scale(1)"
+        this.$refs.enterBtn.style.transform = "scale(1)";
+        if (w > 1200) {
+          this.$refs.barrageBox.style.height = 15.63 + "vw";
+        } else {
+          this.$refs.barrageBox.style.height = 30 + "vh";
+        }
       }
-      this.isShow = !this.isShow
+      this.isShow = !this.isShow;
     },
 
     // 进入主页
     enterMainPage() {
-      this.$router.push("/mainPage")
+      this.$router.push("/mainPage");
     },
 
     // 生成随机数  范围: [min,max]
     getRandom(min, max) {
-      return Math.floor(Math.random() * (max - min + 1) + min)
+      return Math.floor(Math.random() * (max - min + 1) + min);
     },
 
     // 随机生成六位十六进制数
     getColors() {
-      const arr = "0123456789abcdef"
-      let color = "#"
-      let n = 6
-      while (n--) color += arr[this.getRandom(0, 15)]
-      return color
+      const arr = "0123456789abcdef";
+      let color = "#";
+      let n = 6;
+      while (n--) color += arr[this.getRandom(0, 15)];
+      return color;
     },
 
     // 随机三个位置
     getPosition() {
       //展开时增加至五个弹幕轨道
-      var flag = -1 //位置标识符
+      var flag = -1; //位置标识符
       if (this.isShow) {
-        flag = this.getRandom(1, 3)
-        if (flag == 1) return 0
-        else if (flag == 2) return 50
-        else if (flag == 3) return 100
+        flag = this.getRandom(1, 3);
+        if (flag == 1) return 0;
+        else if (flag == 2) return 50;
+        else if (flag == 3) return 100;
       } else {
-        flag = this.getRandom(1, 5)
-        if (flag == 1) return 0
-        else if (flag == 2) return 25
-        else if (flag == 3) return 50
-        else if (flag == 4) return 75
-        else if (flag == 5) return 100
+        flag = this.getRandom(1, 5);
+        if (flag == 1) return 0;
+        else if (flag == 2) return 25;
+        else if (flag == 3) return 50;
+        else if (flag == 4) return 75;
+        else if (flag == 5) return 100;
       }
     },
 
     // 创建弹幕dom对象
     createBarrage(item) {
-      const barrageContent = this.$refs.barrageContent //获取span的父元素
-      const barrageSpan = document.createElement("span") //创建span dom
-      barrageSpan.style.color = this.getColors() //设置随机颜色
-      barrageSpan.innerHTML = item.content //将弹幕列表的内容赋值给弹幕盒子
-      barrageSpan.className = "barrage" //动态绑定类名
+      const barrageContent = this.$refs.barrageContent; //获取span的父元素
+      const barrageSpan = document.createElement("span"); //创建span dom
+      barrageSpan.style.color = this.getColors(); //设置随机颜色
+      barrageSpan.innerHTML = item.content; //将弹幕列表的内容赋值给弹幕盒子
+      barrageSpan.className = "barrage"; //动态绑定类名
       //避免前后两次在同一轨道
-      var positionRand
+      var positionRand;
       while (this.enterLoop) {
-        positionRand = this.getPosition()
+        positionRand = this.getPosition();
         if (this.oldPosition != positionRand) {
-          barrageSpan.style.top = positionRand + "%"
-          this.oldPosition = positionRand
-          break
+          barrageSpan.style.top = positionRand + "%";
+          this.oldPosition = positionRand;
+          break;
         }
       }
       // barrageSpan.style.top = this.getPosition() + "%" //设置随机高度
 
       //弹幕内容过长时提高弹幕速度
       if (item.content.length > 25 && item.content.length < 35)
-        barrageSpan.style.animationDuration = "13s"
+        barrageSpan.style.animationDuration = "13s";
       else if (item.content.length >= 35)
-        barrageSpan.style.animationDuration = "8s"
+        barrageSpan.style.animationDuration = "8s";
 
-      barrageContent.appendChild(barrageSpan) //在barrageContent下创建子盒子
+      barrageContent.appendChild(barrageSpan); //在barrageContent下创建子盒子
 
       //监听动画结束,回调函数中移除dom元素
       barrageSpan.addEventListener("animationend", function () {
-        barrageSpan.remove()
-      })
+        barrageSpan.remove();
+      });
     },
 
     // 开始定时器
@@ -208,25 +219,25 @@ export default {
       // var barrageListCopy = this.barrageList //创建弹幕副本,以便循环使用
       this.barrageTimer = setInterval(() => {
         if (this.barrageList.length) {
-          let first = this.barrageList.shift()
-          this.createBarrage(first)
+          let first = this.barrageList.shift();
+          this.createBarrage(first);
         } else {
           // 弹幕播放完成后摧毁定时器
           // clearInterval(this.barrageTimer)
           // this.barrageTimer = null
-          this.getBarrage() //循环播放
+          this.getBarrage(); //循环播放
         }
-      }, 2500)
+      }, 2500);
     },
 
     //发送弹幕
     sendBarrage() {
       if (this.myBarrage != "") {
-        var myBarrage = { content: this.myBarrage }
-        this.createBarrage(myBarrage)
-        this.postBarrage()
+        var myBarrage = { content: this.myBarrage };
+        this.createBarrage(myBarrage);
+        this.postBarrage();
         if (this.barrageTimer == null) {
-          this.startInterval()
+          this.startInterval();
         }
         this.$message({
           message: "发送成功",
@@ -234,8 +245,8 @@ export default {
           center: true,
           duration: 2000,
           showClose: true,
-        })
-        this.myBarrage = ""
+        });
+        this.myBarrage = "";
       } else if (this.myBarrage == "") {
         this.$message({
           message: "弹幕不能为空喔~",
@@ -243,19 +254,19 @@ export default {
           center: true,
           duration: 2000,
           showClose: true,
-        })
+        });
       }
     },
     // 禁止回车换行
     banEnter(e) {
-      e.preventDefault()
+      e.preventDefault();
     },
 
     //获取弹幕方法
     getBarrage() {
       this.$http.get("/comment/").then((res) => {
-        this.barrageList = res.data.data
-      })
+        this.barrageList = res.data.data;
+      });
     },
     //发送弹幕方法
     postBarrage() {
@@ -271,7 +282,7 @@ export default {
               center: true,
               duration: 2000,
               showClose: true,
-            })
+            });
           } else if (error.response.status == 42002) {
             this.$message({
               message: "弹幕过长了哦~",
@@ -279,7 +290,7 @@ export default {
               center: true,
               duration: 2000,
               showClose: true,
-            })
+            });
           } else if (error.response.status == 42003) {
             this.$message({
               message: "弹幕不能为空哦~",
@@ -287,12 +298,12 @@ export default {
               center: true,
               duration: 2000,
               showClose: true,
-            })
+            });
           }
-        })
+        });
     },
   },
-}
+};
 </script>
 
 <style scoped>
@@ -383,13 +394,11 @@ export default {
   font-weight: bold;
   color: #ffffff;
   cursor: pointer;
-  transition:0.5s;
+  transition: 0.5s;
 }
 .enterBtn:hover {
   transform: scale(1.2);
   box-shadow: 0.1vw 0.2vw 1.08vw 0px rgba(2, 0, 0, 0.1);
-
-
 }
 .arrowBox {
   position: relative;
@@ -468,10 +477,8 @@ export default {
   width: 77vw;
   height: 6.77vw;
   background: rgba(255, 255, 255, 0);
-
   font-size: 1.25vw;
   font-family: Microsoft YaHei UI;
-
   color: #666666;
   /* 禁止拖拽 */
   resize: none;
@@ -496,5 +503,130 @@ export default {
 }
 .sendBox:hover {
   transform: scale(1.1);
+}
+
+/* 平板  1024 1366为例*/
+@media screen and (max-width: 1200px) and (min-width: 768px) {
+  .bg > img {
+    object-fit: fill;
+  }
+  .enterBox .enterBtn {
+    width: 25vw;
+    height: 7vw;
+    line-height: 7vw;
+    font-size: 2.5vw;
+    border-radius: 5vw;
+  }
+  .navBox .nav_log {
+    width: 15vw;
+    margin-top: 1vw;
+  }
+  .arrowBox .line {
+    top: -4.5vh;
+    height: 4vw;
+  }
+  .arrowBox .up {
+    position: absolute;
+    width: 4vw;
+    top: -8.5vw;
+  }
+  /* 上下悬浮动画 */
+  @keyframes unfold_box {
+    from {
+      transform: translate(0, -0.5vw);
+    }
+    to {
+      transform: translate(0, 0.5vw);
+    }
+  }
+  .barrageBox {
+    height: 35vh;
+    background: rgba(255, 252, 248, 0.72);
+    border-radius: 3.13vw 3.13vw 0px 0px;
+  }
+
+  .sendBarrageBox {
+    height: 20vh;
+    background: rgba(255, 255, 255, 0.38);
+    box-shadow: 0.21vw 0.31vw 2.08vw 0px rgba(2, 0, 0, 0.3);
+    border-radius: 3.13vw 3.13vw 0px 0px;
+    position: absolute;
+    bottom: 0;
+    transition-property: height;
+    transition: height 0.5s;
+  }
+  #barrageContent {
+    height: 50%;
+    margin: 2vw;
+  }
+  .inputBox textarea {
+    font-size: 2.5vw;
+  }
+  .sendBox {
+    line-height: 4vw;
+    bottom: 3vw;
+    width: 12vw;
+    height: 4vw;
+    border-radius: 2vw;
+    font-size: 2vw;
+  }
+}
+
+/* 手机 768以下 */
+
+@media screen and (max-width: 768px) {
+  .enterBox .enterBtn {
+    width: 35vw;
+    height: 10vw;
+    line-height: 10vw;
+    font-size: 3.5vw;
+    border-radius: 5vw;
+  }
+  .navBox .nav_log {
+    width: 25vw;
+    margin-top: 5vw;
+  }
+  .arrowBox .line {
+    top: -4vh;
+    height: 4vh;
+  }
+  .arrowBox .up {
+    position: absolute;
+    width: 8vw;
+    top: -9vh;
+  }
+  /* 上下悬浮动画 */
+  @keyframes unfold_box {
+    from {
+      transform: translate(0, -1vw);
+    }
+    to {
+      transform: translate(0, 1vw);
+    }
+  }
+  .barrageBox {
+    height: 40vh;
+    border-radius: 5vw 5vw 0px 0px;
+  }
+
+  .sendBarrageBox {
+    height: 25vh;
+    border-radius: 5vw 5vw 0px 0px;
+  }
+  #barrageContent {
+    height: 46%;
+    margin: 5vw;
+  }
+  .inputBox textarea {
+    font-size: 4vw;
+  }
+  .sendBox {
+    line-height: 6vw;
+    bottom: 3vh;
+    width: 20vw;
+    height: 6vw;
+    border-radius: 3vw;
+    font-size: 4vw;
+  }
 }
 </style>

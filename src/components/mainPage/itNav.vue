@@ -1,11 +1,9 @@
 //createDate:2022-04-23
 <template>
   <div class="itNavBg"></div>
-
   <div class="itNav">
     <div class="logBox">
       <img
-        data-aos="fade-up"
         @click="returnTop()"
         class="logo"
         src="../../assets/img/logo2.png"
@@ -16,7 +14,6 @@
       <li
         :class="{ choose: currentIdx == index }"
         id="li"
-        data-aos="fade-up"
         v-for="(item, index) in navList"
         :key="index"
         @click="scrollbarMove(index)"
@@ -59,28 +56,24 @@ export default {
             behavior: "smooth",
           })
           break
-
         case 1:
           window.scrollTo({
             top: 0.871 * windowWidth,
             behavior: "smooth",
           })
           break
-
         case 2:
           window.scrollTo({
             top: 1.435 * windowWidth,
             behavior: "smooth",
           })
           break
-
         case 3:
           window.scrollTo({
             top: 1.896 * windowWidth,
             behavior: "smooth",
           })
           break
-
         default:
           break
       }
@@ -131,5 +124,26 @@ li:hover {
 }
 .choose {
   color: #e19f73;
+}
+
+/* 手机 */
+@media screen and (max-width: 768px){
+  .itNavBg {
+  height: 8vw;
+}
+.itNav {
+  width: 80vw;
+  height: 8vw;
+}
+.logo {
+  width: 20vw;
+  margin-top: 5px;
+}
+.content {
+  width: 50vw;
+}
+li {
+  font-size: 2.5vw;
+}
 }
 </style>

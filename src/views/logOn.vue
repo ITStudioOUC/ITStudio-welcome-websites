@@ -1,11 +1,11 @@
 <template>
   <div class="background">
-    <div class="back" @click="toHome()">
+    <div class="back topBtn" @click="toHome()" >
       <div class="move">←</div>
       返回主页
     </div>
     <router-link to="/query" class="routerToQuery"
-      ><div class="iquery">
+      ><div class="iquery topBtn">
         <div class="move">←</div>
         查询结果
       </div></router-link
@@ -954,5 +954,51 @@ div#Department::after {
 .submit:hover {
   transform: scale(1.1);
   box-shadow: 0vw 0vw 1.07vw 0.16vw rgb(2 0 0 / 5%);
+}
+
+/* 平板 */
+@media screen and (max-width: 1200px) and (min-width: 768px) {
+  .background {
+    width: 100vw;
+    height: 100vh;
+    background-size: 100vw 100vh;
+    padding-top: 1.76vw;
+  }
+  .main {
+    margin-top: 10vw;
+    border-radius: 2vw;
+  }
+  .topBtn {
+    width: 15vw;
+    height: 4vw;
+    margin-left: 2vw;
+    padding-left: 4vw;
+    line-height: 4vw;
+    border-radius: 2vw;
+    font-size: 1.6vw;
+  }
+}
+
+/* 手机 */
+@media screen and (max-width: 768px) {
+  .background {
+    width: 100vw;
+    height: 100vh;
+    background-size: 100vw 100vh;
+    padding-top: 1.76vw;
+  }
+  .main {
+    margin-top: 10vw;
+    border-radius: 2vw;
+  }
+   .topBtn {
+    width: 20vw;
+    height: 6vw;
+    margin-left: 5vw;
+    padding-left: 5vw;
+    line-height: 6vw;
+    border-radius: 3vw;
+    font-size: 1.8vw;
+  }
 }
 </style>

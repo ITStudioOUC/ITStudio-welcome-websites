@@ -61,4 +61,14 @@ a {
 .barrage:hover {
   animation-play-state: paused;
 }
+@media screen and (max-width: 1200px) and (min-width: 768px) {
+  .barrage {
+    font-size: 2.5vw;
+  }
+}
+@media screen and (max-width: 768px) {
+  .barrage {
+    font-size: 4.5vw;
+  }
+}
 </style>

@@ -7,13 +7,14 @@
       <div class="line"></div>
     </div>
     <div class="fiveDepartment">
-      <li
-        v-for="(item, index) in departmentList"
-        :key="index"
-        data-aos="zoom-in-up"
-      ><router-link to = "/departmentInformation" @click="toDepartmentInfo(item.id)">
-        <span class="imgBox"><img :src="item.icon" alt="" /></span>
-        <span class="name" >{{ item.department_cn }} </span></router-link>
+      <li v-for="(item, index) in departmentList" :key="index">
+        <router-link
+          to="/departmentInformation"
+          @click="toDepartmentInfo(item.id)"
+        >
+          <span class="imgBox"><img :src="item.icon" alt="" /></span>
+          <span class="name">{{ item.department_cn }} </span></router-link
+        >
       </li>
     </div>
   </div>
@@ -25,25 +26,24 @@ export default {
   data() {
     return {
       departmentList: [],
-    }
+    };
   },
-  created(){
-    this.$http.get("/department/").then((res)=>{
-      this.departmentList = res.data.data
-      
-    })
+  created() {
+    this.$http.get("/department/").then((res) => {
+      this.departmentList = res.data.data;
+    });
   },
-  methods:{
-     toDepartmentInfo(id){
-       this.$router.push ({
-         path: "/departmentInformation",
-         query: {
-           code: id,
-         },
-       })
-     }
-  }
-}
+  methods: {
+    toDepartmentInfo(id) {
+      this.$router.push({
+        path: "/departmentInformation",
+        query: {
+          code: id,
+        },
+      });
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -123,5 +123,21 @@ li span img {
   );
   border-radius: 50%;
   transition: transform 0.3s;
+}
+@media screen and (max-width: 768px) {
+  .line {
+    width: 15vw;
+  }
+  .title {
+    height: 10vw;
+    width: 45vw;
+  }
+  h3 {
+    font-size: 2.5vw;
+  }
+  li span {
+    font-size: 2vw;
+    margin-top: 1vw;
+  }
 }
 </style>
