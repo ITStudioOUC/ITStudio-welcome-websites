@@ -469,6 +469,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+ 
 }
 .inputBox textarea {
   outline: none;
@@ -482,6 +483,9 @@ export default {
   color: #666666;
   /* 禁止拖拽 */
   resize: none;
+  /* ios input失效 */
+  -webkit-user-select: text !important;
+  user-select: text !important;
 }
 .sendBox {
   display: inline-block;

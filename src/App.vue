@@ -71,4 +71,9 @@ a {
     font-size: 4.5vw;
   }
 }
+input {
+  /* ios input失效 */
+  -webkit-user-select: text !important;
+  user-select: text !important;
+}
 </style>

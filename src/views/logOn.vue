@@ -1,6 +1,6 @@
 <template>
   <div class="background">
-    <div class="back topBtn" @click="toHome()" >
+    <div class="back topBtn" @click="toHome()">
       <div class="move">←</div>
       返回主页
     </div>
@@ -17,7 +17,7 @@
         </div>
         <div class="join">加入我们！</div>
         <div class="us">Join us！</div>
-        <div class="blank"></div>
+        <!-- <div class="blank"></div> -->
       </div>
       <div class="boss">
         <!-- 学生姓名 -->
@@ -307,7 +307,6 @@ export default {
     },
 
     // -------------------------------------------------------------------------------------------------
-
     //性别改变
     manChange() {
       this.manShowIs = !this.manShowIs;
@@ -576,11 +575,8 @@ export default {
   margin-left: 1.72vw;
   padding-left: 3.6vw;
   box-sizing: border-box;
-  /* text-align: center; */
   line-height: 3.18vw;
   margin-top: 0.99vw;
-  /* padding-top: 0.63vw;
-  padding-left: 2.4vw; */
   background: #ffffff;
   border-radius: 1.25vw;
   display: flex;
@@ -597,10 +593,8 @@ export default {
 }
 .main {
   width: 63.91vw;
-  /* height: 91.88vw; */
-  margin-top: 1.04vw;
-  margin-left: 18.18vw;
-
+  height: 96vw;
+  margin: 1.04vw auto;
   /* border: 0.01vw solid white; */
   background: #ffffff;
   box-shadow: 0vw 0vw 3.07vw 0.16vw rgba(2, 0, 0, 0.1);
@@ -608,13 +602,14 @@ export default {
   box-sizing: border-box;
 }
 .maintop {
-  width: 63.91vw;
-  height: 34.48vw;
+  width: 100%;
+  height: 36%;
   padding-top: 1.88vw;
   background-image: url("../assets/photo.png");
   background-size: 63.91vw 34.48vw;
-  border-radius: 1.04vw;
+  border-radius: 1.04vw 1.04vw 0 0;
   box-sizing: border-box;
+  margin: 0 auto;
 }
 .logo {
   width: 8.07vw;
@@ -623,8 +618,6 @@ export default {
 }
 
 .join {
-  width: 32.89vw;
-  height: 4.69vw;
   font-size: 4.69vw;
   margin-left: 19.56vw;
   margin-top: 2.81vw;
@@ -633,8 +626,6 @@ export default {
   color: #ffffff;
 }
 .us {
-  width: 14.79vw;
-  height: 2.14vw;
   margin-left: 24.38vw;
   margin-top: 1.98vw;
   font-size: 2.5vw;
@@ -642,24 +633,22 @@ export default {
   font-weight: bold;
   color: #ffffff;
 }
-.blank {
-  width: 54.74vw;
-  height: 12.03vw;
-  margin-left: 4.38vw;
-  margin-top: 6.46vw;
-  background: #ffffff;
-  border-radius: 1.04vw 1.04vw 0vw 0vw;
-}
 .boss {
-  width: 48.13vw;
-  /* height: 54.22vw; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 86%;
+  border-radius: 20px 20px 0px 0px;
   margin: 0 auto;
   margin-top: -10.59vw;
   background-color: white;
+  border-radius: 1.04vw 1.04vw 0px 0px;
+}
+.boss > div {
+  width: 48.13vw;
 }
 /* 姓名 */
 .name {
-  width: 48.13vw;
   height: 5.16vw;
   /* background-color: rgba(155, 14, 226, 0.911); */
   justify-content: space-between;
@@ -683,7 +672,12 @@ export default {
 
   /* background-color: rgb(209, 30, 30); */
 }
-
+textarea,
+input {
+  /* ios input失效 */
+  -webkit-user-select: text !important;
+  user-select: text !important;
+}
 input::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder {
   color: #999999;
@@ -971,11 +965,12 @@ div#Department::after {
   .topBtn {
     width: 15vw;
     height: 4vw;
-    margin-left: 2vw;
+    margin-left: 4vw;
     padding-left: 4vw;
     line-height: 4vw;
     border-radius: 2vw;
     font-size: 1.6vw;
+    margin-bottom: 1vw;
   }
 }
 
@@ -984,21 +979,31 @@ div#Department::after {
   .background {
     width: 100vw;
     height: 100vh;
-    background-size: 100vw 100vh;
-    padding-top: 1.76vw;
+    background-size: cover;
   }
   .main {
+    /* width: 90vw;
+    height: 80vh; */
+
     margin-top: 10vw;
     border-radius: 2vw;
   }
-   .topBtn {
-    width: 20vw;
+  /* .maintop{
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-repeat: no-repeat;
+  } */
+  .topBtn {
+    width: 25vw;
     height: 6vw;
     margin-left: 5vw;
     padding-left: 5vw;
     line-height: 6vw;
     border-radius: 3vw;
     font-size: 1.8vw;
+    margin-bottom: 1vw;
   }
 }
 </style>
