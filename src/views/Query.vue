@@ -474,4 +474,47 @@ h4 {
 .isGreen {
   color: #65bc6d;
 }
+/* 平板 */
+@media screen and (max-width: 1200px) and (min-width: 768px) {
+  .query {
+    width: 100vw;
+    height: 100vh;
+    background-size: 100vw 100vh;
+    padding-top: 1.76vw;
+  }
+  .btnBox .btnLink {
+    width: 15vw;
+    height: 4vw;
+    border-radius: 2vw;
+    font-size: 1.6vw;
+    line-height: 4vw;
+    margin-bottom: 2vw;
+    margin-left: 3vw;
+  }
+  .content {
+    width: 63.91vw;
+    height: 95.63vw;
+    margin-top: 4vw;
+  }
+}
+/* 手机 */
+@media screen and (max-width: 768px) {
+  .query {
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .btnBox .btnLink {
+    width: 25vw;
+    height: 6vw;
+    border-radius: 3vw;
+    font-size: 1.8vw;
+    line-height: 6vw;
+    margin-bottom: 2vw;
+    margin-left: 5vw;
+  }
+}
 </style>
