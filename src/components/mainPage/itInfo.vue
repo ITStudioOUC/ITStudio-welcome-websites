@@ -182,6 +182,9 @@ p {
 }
 /* 手机 */
 @media screen and (max-width: 768px) {
+  .itInfo {
+    height: 40vw;
+  }
   .infoText {
     width: 42vw;
     height: 33vw;

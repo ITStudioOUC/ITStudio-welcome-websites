@@ -202,4 +202,12 @@ export default {
 .bottomBlock {
   margin-top: 5vw;
 }
+
+/* 手机 768以下 */
+
+@media screen and (max-width: 768px) {
+  .historyWorksBlock {
+    margin-top: 5vw;
+  }
+}
 </style>
