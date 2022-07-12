@@ -507,6 +507,10 @@ h4 {
     justify-content: center;
     align-items: center;
   }
+  .content{
+    transform: scale(1.3);
+    transform-origin: center top;
+  }
   .btnBox .btnLink {
     width: 25vw;
     height: 6vw;

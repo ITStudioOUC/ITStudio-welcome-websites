@@ -579,6 +579,14 @@ export default {
 /* 手机 768以下 */
 
 @media screen and (max-width: 768px) {
+  .bg{
+    width: 100vw;
+    height: 100vh;
+
+  }
+  .bg img{
+    object-fit: cover;
+  }
   .enterBox .enterBtn {
     width: 35vw;
     height: 10vw;

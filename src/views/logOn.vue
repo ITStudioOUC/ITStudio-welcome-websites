@@ -982,19 +982,11 @@ div#Department::after {
     background-size: cover;
   }
   .main {
-    /* width: 90vw;
-    height: 80vh; */
-
+    transform: scale(1.3);
+    transform-origin: center top;
     margin-top: 10vw;
     border-radius: 2vw;
   }
-  /* .maintop{
-    width: 90vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-repeat: no-repeat;
-  } */
   .topBtn {
     width: 25vw;
     height: 6vw;
@@ -1004,6 +996,10 @@ div#Department::after {
     border-radius: 3vw;
     font-size: 1.8vw;
     margin-bottom: 1vw;
+  }
+  .leftone {
+    width: 10vw;
+    font-size: 1.7vw;
   }
 }
 </style>
