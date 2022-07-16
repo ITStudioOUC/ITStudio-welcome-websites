@@ -127,7 +127,8 @@
           <div class="rightone">
             <input
               class="one"
-              type="number"
+              type="text"
+              onkeyup="this.value=this.value.replace(/\D/g,'')"
               placeholder="验证码将发送至您的邮箱。"
               v-model="yanValue"
             />
@@ -346,6 +347,7 @@ export default {
           })
           // 回调函数
           .then((res) => {
+            console.log("res", res);
             if (res.data.code === 20000) {
               this.$message({
                 message: "发送成功~",
@@ -354,7 +356,6 @@ export default {
                 duration: 2000,
                 showClose: true,
               });
-
               // 120秒倒计时
               const TIME_COUNT = 120;
               if (!this.timer) {
@@ -374,8 +375,31 @@ export default {
           })
           // 捕获错误
           .catch((err) => {
+            console.log("err", err);
+            let msg;
+            if (err.response.data.code == 42031) {
+              msg = "邮件发送失败,请检查邮箱是否存在";
+            }
+            else msg = err.response.data.msg.email;
+            // switch (err.response.data.code) {
+            //   case 40000:
+            //     msg = "请勿频发发送验证码";
+            //     break;
+            //   case 42032:
+            //     msg = "邮箱过长";
+            //     break;
+            //   case 44033:
+            //     msg = "请勿频繁发送验证码";
+            //     break;
+            //   case 44036:
+            //     msg = "请输入正确的邮箱格式";
+            //     break;
+            //   default:
+            //     msg = "未知错误!请联系相关技术人员";
+            //     break;
+            // }
             this.$message({
-              message: err.response.data.msg,
+              message: msg,
               type: "error",
               center: true,
               duration: 2000,
@@ -442,6 +466,7 @@ export default {
             });
           })
           .catch((err) => {
+            console.log('err',err)
             let msg;
             switch (err.response.data.code) {
               case 40000:
