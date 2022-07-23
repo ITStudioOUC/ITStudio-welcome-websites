@@ -1,13 +1,15 @@
 <template>
-  <div class="bigBg" ref = "bigBg" @mousewheel.prevent>
+  <div class="bigBg" ref="bigBg" @mousewheel.prevent>
     <div class="bgInfo">
-      <router-link to="/mainPage">
-        <div class="returnBtn">
-          <div class="arrow"><div>←</div></div>
-          <!-- 加动画 -->
-          <div>返回主页</div>
-        </div>
-      </router-link>
+      <div style="overflow: hidden; width: 14.2vw">
+        <router-link to="/mainPage">
+          <div class="returnBtn">
+            <div class="arrow"><div>←</div></div>
+            <!-- 加动画 -->
+            <div>返回主页</div>
+          </div>
+        </router-link>
+      </div>
       <!-- --- -->
       <div class="infoBigbox">
         <!-- v-for -->
@@ -20,7 +22,11 @@
           <div class="infoPage">
             <div class="aiteSign">
               <img class="aiteSignPic" src="../../../assets/logo.png" alt="" />
-              <img class="aiteSignWord" src="../../../assets/IT_STUDIO.png" alt="" />
+              <img
+                class="aiteSignWord"
+                src="../../../assets/IT_STUDIO.png"
+                alt=""
+              />
             </div>
             <!-- 图标 -->
             <div class="infoContentBox">
@@ -129,10 +135,10 @@ export default {
       deep: true,
     },
   },
-mounted() {
+  mounted() {
     //&nbsp;切换页面时滚动条自动滚动到顶部
-    window.scrollTo(0,0);
-},
+    window.scrollTo(0, 0);
+  },
   computed: {
     departmentInfo1: function () {
       return this.sortKey(this.departmentInfo, "id"); //调用排序方法
@@ -152,31 +158,32 @@ mounted() {
     //  --------
     // 切换介绍名片
     changePage(id) {
-        let max_zindex = 5;
-        let i;         
-        let dom = document.querySelectorAll(".infoBox");
-        let zindex = window.getComputedStyle(dom[id], "none").zIndex;
-        //  ---------------------------------------------------
-        let n = max_zindex - zindex;
-        if (n > 0) {
-          for (i = 0; i < 5; i++) {
-            if (window.getComputedStyle(dom[i], "none").zIndex > zindex) {
-              this.pages[i].style.zIndex =
-                window.getComputedStyle(dom[i], "none").zIndex - 1;
-              this.pages[i].style.transform = `translateX(${
-                0.52 * (5 - this.pages[i].style.zIndex)
-              }vw)`;
-            }
-            //  translate不能积累，改：用zindex绑定translate
+      let max_zindex = 5;
+      let i;
+      let dom = document.querySelectorAll(".infoBox");
+      let zindex = window.getComputedStyle(dom[id], "none").zIndex;
+      //  ---------------------------------------------------
+      let n = max_zindex - zindex;
+      if (n > 0) {
+        for (i = 0; i < 5; i++) {
+          if (window.getComputedStyle(dom[i], "none").zIndex > zindex) {
+            this.pages[i].style.zIndex =
+              window.getComputedStyle(dom[i], "none").zIndex - 1;
+            this.pages[i].style.transform = `translateX(${
+              0.52 * (5 - this.pages[i].style.zIndex)
+            }vw)`;
           }
-          this.pages[id].style.zIndex = max_zindex;
-          this.pages[id].style.transform = "translateX(0vw)";
+          //  translate不能积累，改：用zindex绑定translate
         }
+        this.pages[id].style.zIndex = max_zindex;
+        this.pages[id].style.transform = "translateX(0vw)";
+      }
     },
   },
 };
 </script>
 <style scoped>
+
 .bigBg {
   width: 100vw;
   height: 100vh;
@@ -304,10 +311,10 @@ mounted() {
   width: 30.98vw;
   margin: 0 0 1.56vw 0;
   /* width: 295px; */
-  height: 3.80vw;
-  line-height: 3.80vw;
-  font-size: 3.70vw;
-  
+  height: 3.8vw;
+  line-height: 3.8vw;
+  font-size: 3.7vw;
+
   font-family: Microsoft YaHei UI;
   font-weight: bold;
   color: #483029;
@@ -317,8 +324,8 @@ mounted() {
   margin: 0 0 2.06vw -0.52vw;
   /* -0.52补正 由于translate导致的移位 是因为子元素继承父元素的属性？ */
   /* width: 245px; */
-  line-height: 2.50vw;
-  height: 2.50vw;
+  line-height: 2.5vw;
+  height: 2.5vw;
   font-size: 2.2vw;
   font-family: Microsoft YaHei UI;
   font-weight: bold;
@@ -330,8 +337,8 @@ mounted() {
   /* -1.04补正 由于translate导致的移位 是因为子元素继承父元素的属性？ */
   /* width: 29.74vw; */
   /* height: 5.36vw; */
-  font-size: 1.10vw;
-  font-family:SimHei;
+  font-size: 1.1vw;
+  font-family: SimHei;
   font-weight: 600;
   color: rgb(106, 103, 103);
 }
@@ -340,7 +347,7 @@ mounted() {
   /* -1.56补正 由于translate导致的移位 是因为子元素继承父元素的属性？ */
   width: 30.98vw;
   font-size: 1.15vw;
-  font-family:SimHei;
+  font-family: SimHei;
   font-weight: bold;
   color: rgb(106, 103, 103);
 }
@@ -364,7 +371,7 @@ mounted() {
 height: 24px; */
   text-align: center;
   line-height: 5.26vw;
-  font-size: 1.10vw;
+  font-size: 1.1vw;
   font-family: SimHei;
   font-weight: bold;
   color: #666666;

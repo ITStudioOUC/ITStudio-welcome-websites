@@ -1,6 +1,7 @@
 <template>
   <div class="bigBg" @touchmove.prevent="touchMove">
     <div class="bgMembersInfo">
+      <div style="overflow: hidden; width: 27.2vw">
       <router-link to="/mainPage">
         <div class="returnBtn">
           <div class="arrowLR"><div>←</div></div>
@@ -8,6 +9,7 @@
           <div>返回主页</div>
         </div>
       </router-link>
+      </div>
       <!-- --------内容 -->
       <div class="showBigBox">
         <!--时间轴-->
@@ -663,8 +665,9 @@ export default {
 }
 
 /* -------------------------------------------- */
-a {
+a:-webkit-any-link {
   text-decoration: none;
+    width: 23vw;
 }
 .bigBg {
   width: 100vw;
