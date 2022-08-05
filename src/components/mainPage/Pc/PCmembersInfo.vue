@@ -1,6 +1,7 @@
 <template>
   <div class="bigBg" @mousewheel.prevent>
     <div class="bgMembersInfo">
+      <div style="overflow: hidden; width: 14.2vw">
       <router-link to="/mainPage">
         <div class="returnBtn">
           <div class="arrowLR"><div>←</div></div>
@@ -8,6 +9,7 @@
           <div>返回主页</div>
         </div>
       </router-link>
+      </div>
       <!-- --------内容 -->
       <div class="showBigBox">
         <!--时间轴-->
@@ -657,9 +659,7 @@ export default {
 }
 
 /* -------------------------------------------- */
-a {
-  text-decoration: none;
-}
+
 .bigBg {
   width: 100vw;
   height: 100vh;
@@ -802,8 +802,23 @@ a {
     rgba(211, 186, 94, 0.74),
     rgba(216, 137, 85, 0.74)
   );
+  background: -moz-linear-gradient(
+    90deg,
+    rgba(244, 209, 84, 0.741),
+    rgba(211, 186, 94, 0.741),
+    rgba(216, 137, 85, 0.741)
+  );
+  background: -webkit-linear-gradient(
+    90deg,
+    #f4d154bd,
+    #d3ba5ebd,
+    #d88955bd
+  ); 
   background-clip: text;
+  -moz-background-clip: text;
+  -webkit-background-clip: text;
   color: transparent;
+  -webkit-text-fill-color: transparent;
   transition: 1.2s;
 }
 /* -- */

@@ -1,6 +1,7 @@
 <template>
   <div class="bigBg" ref = "bigBg" @mousewheel.prevent>
     <div class="bgInfo">
+      <div style="overflow: hidden; width: 27.2vw">
       <router-link to="/mainPage">
         <div class="returnBtn">
           <div class="arrow"><div>←</div></div>
@@ -8,6 +9,7 @@
           <div>返回主页</div>
         </div>
       </router-link>
+      </div>
       <!-- --- -->
       <div class="infoBigbox">
         <!-- v-for -->
@@ -158,7 +160,7 @@ mounted() {
         let zindex = window.getComputedStyle(dom[id], "none").zIndex;
         //  ---------------------------------------------------
         let n = max_zindex - zindex;
-        console.log(window.getComputedStyle(dom[id], "none").width,"宽");
+        // console.log(window.getComputedStyle(dom[id], "none").width,"宽");
         if (n > 0) {
           for (i = 0; i < 5; i++) {
             if (window.getComputedStyle(dom[i], "none").zIndex > zindex) {
@@ -178,6 +180,10 @@ mounted() {
 };
 </script>
 <style scoped>
+a:-webkit-any-link {
+  text-decoration: none;
+    width: 23vw;
+}
 .bigBg {
   width: 100vw;
   height: 100vh;

@@ -1,12 +1,14 @@
 <template>
 <div class="bigBg"   @touchmove.prevent="touchMove">
   <div class="bgWorksShow">
+    <div style="overflow: hidden; width: 27.2vw">
     <router-link to="/mainPage">
       <div class="returnBtn">
         <div class="arrow"><div>←</div></div>
         <div>返回主页</div>
       </div>
     </router-link>
+    </div>
     <!-- --------内容 -->
     <div class="showBigBox">
       <div class="timeLine" ref="dateBox">
@@ -220,10 +222,10 @@ export default {
       e.preventDefault() //阻止默认事件（长按的时候出现复制）不成功？？
       let moveEndY = e.changedTouches[0].pageY
       let Y = moveEndY - this.$data.startY  //如果值为正,则代表手指下滑,反则则为上滑,为0则表示点击
-      if (Y > 50) {
+      if (Y > 0) {
         console.log('下滑')
   this.$data.bigWordID--;
-      } else if (Y < -50) {
+      } else if (Y < 0) {
         console.log('上滑')
  this.$data.bigWordID++;
       } else {
@@ -271,8 +273,9 @@ export default {
 };
 </script>
 <style scoped>
-a {
+a:-webkit-any-link {
   text-decoration: none;
+  width: 23vw;
 }
 .bigBg {
   width: 100vw;
