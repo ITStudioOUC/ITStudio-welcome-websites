@@ -43,13 +43,13 @@ export default {
           imgSrc: require("../../assets/img/photo2.png"),
           title: "团队文化02",
           content:
-            "爱特一直以凝聚和培养计算机人才为己任,发掘技术潜力,感受合作乐趣,让代码高效执行,让大家更进一步。",
+            "用创意打磨精巧设计，用智慧实现炫酷交互;用热情呈现高效代码，以交流触碰灵感火花;以创造激发全新想象,用双手创造改变未来。",
         },
         {
           imgSrc: require("../../assets/img/photo3.png"),
           title: "团队文化03",
           content:
-            "爱特一直以凝聚和培养计算机人才为己任,发掘技术潜力,感受合作乐趣,让代码高效执行,让大家更进一步。",
+            "汇聚技术力量，解剖程序内核，研究代码本质，巧解应用难题。以逻辑洞察数据，以细节战胜漏洞。",
         },
       ],
     };
@@ -70,14 +70,12 @@ export default {
 .aboutIt .el-carousel__arrow,
 .aboutIt .el-icon {
   transform: scale(1.5);
-  
 }
-.aboutIt .el-carousel__arrow{
+.aboutIt .el-carousel__arrow {
   background: rgba(0, 0, 0, 0.4);
 }
-.aboutIt .el-carousel__arrow:hover{
+.aboutIt .el-carousel__arrow:hover {
   background: rgba(0, 0, 0, 0.7);
-
 }
 .aboutIt .el-carousel__container {
   height: 44.01vw;
