@@ -66,23 +66,30 @@ export default {
   },
 };
 </script>
+<style>
+.aboutIt .el-carousel__arrow,
+.aboutIt .el-icon {
+  transform: scale(1.5);
+  
+}
+.aboutIt .el-carousel__arrow{
+  background: rgba(0, 0, 0, 0.4);
+}
+.aboutIt .el-carousel__arrow:hover{
+  background: rgba(0, 0, 0, 0.7);
 
-<style scoped>
-/* .el-carousel__item {
-  background-color: #cbe2fb;
-} */
+}
+.aboutIt .el-carousel__container {
+  height: 44.01vw;
+}
 .el-carousel__item {
   height: 44.01vw;
 }
 .el-carousel__container {
   height: 100%;
 }
-.el-carousel__arrow--left {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-}
-
+</style>
+<style scoped>
 .aboutIt {
   display: flex;
   justify-content: space-between;

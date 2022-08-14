@@ -2,6 +2,7 @@
 <template>
   <div class="itNavBg"></div>
   <div class="itNav">
+    
     <div class="logBox">
       <img
         @click="returnTop()"
@@ -12,6 +13,7 @@
     </div>
     <div class="content">
       <span class="qqGroup" v-show="isPC">
+        
         <a
           target="blank"
           href="https://qm.qq.com/cgi-bin/qm/qr?k=QCHusRvSWhuXRVydCnLIBR4XjThzsYmI&jump_from=webapi"
