@@ -1,5 +1,6 @@
 <template>
   <div class="bigBg" ref="bigBg" @mousewheel.prevent>
+     <!-- @mousewheel.prevent -->
     <div class="bgInfo">
       <div style="overflow: hidden; width: 14.2vw">
         <router-link to="/mainPage">
@@ -33,8 +34,14 @@
               <div class="infoContentWord">
                 <div class="Chinese">{{ item.department_cn }}</div>
                 <div class="English">{{ item.department_en }}</div>
-                <div class="departmentInformation">{{ item.content }}</div>
-                <div class="departmentTask">{{ item.introduction }}</div>
+                <div class="scrollbar">
+                <el-scrollbar max-height="20.05vw">
+                  <div class="message">
+                    <div class="departmentInformation">{{ item.content }}</div>
+                    <div class="departmentTask">{{ item.introduction }}</div>
+                  </div>
+                </el-scrollbar>
+                </div>
               </div>
               <!--左边-->
               <div class="departmentPic">
@@ -66,37 +73,38 @@ export default {
       pages: [], //存放盒子的数组
       id: "",
       departmentInformation: [],
-      DEL_departmentInformation: [
+      DEL_departmentInfo: [
         {
-          name1: "程序部",
-          name2: "hhh1",
-          program: "do you like what you see",
-          pic: require("../../../assets/programBg.png"),
+          department_cn: "程序部",
+           department_en: "hhhh",
+          content: "do you like what you see",
+          introduction: "红红火火恍恍惚惚或或或红红火火恍恍惚惚或或或或红红火火恍恍惚惚或或或或红红火火恍恍惚惚或或或或红红恍恍惚惚或或或或红红恍恍惚惚或或或或红红恍恍惚惚或或或或红红恍恍惚惚或或或或红红恍恍惚惚或或或或红红恍恍惚惚或或或或红红恍恍惚惚或或或或红红恍恍惚惚或或恍恍惚惚或或或或红红恍恍惚惚或或或或红红恍恍惚惚或或或或红红恍恍惚惚或或或或红红或或红红火火恍恍惚惚或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或红红火火恍恍惚惚或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或",
+          background: require("../../../assets/programBg.png"),
         },
-        {
-          name1: "游戏部",
-          name2: "hhh2",
-          program: "do you like what you see",
-          pic: require("../../../assets/gameBg.png"),
-        },
-        {
-          name1: "WEB部",
-          name2: "hhh3",
-          program: "do you like what you see",
-          pic: require("../../../assets/webBg.png"),
-        },
-        {
-          name1: "UI部",
-          name2: "hhh4",
-          program: "do you like what you see",
-          pic: require("../../../assets/uiBg.png"),
-        },
-        {
-          name1: "APP部",
-          name2: "hhh5",
-          program: "do you like what you see",
-          pic: require("../../../assets/appBg.png"),
-        },
+        // {
+        //   name1: "游戏部",
+        //   name2: "hhh2",
+        //   program: "do you like what you see",
+        //   pic: require("../../../assets/gameBg.png"),
+        // },
+        // {
+        //   name1: "WEB部",
+        //   name2: "hhh3",
+        //   program: "do you like what you see",
+        //   pic: require("../../../assets/webBg.png"),
+        // },
+        // {
+        //   name1: "UI部",
+        //   name2: "hhh4",
+        //   program: "do you like what you see",
+        //   pic: require("../../../assets/uiBg.png"),
+        // },
+        // {
+        //   name1: "APP部",
+        //   name2: "hhh5",
+        //   program: "do you like what you see",
+        //   pic: require("../../../assets/appBg.png"),
+        // },
       ],
     };
   },
@@ -136,7 +144,7 @@ export default {
     },
   },
   mounted() {
-    //&nbsp;切换页面时滚动条自动滚动到顶部
+    // 
     window.scrollTo(0, 0);
   },
   computed: {
@@ -183,7 +191,6 @@ export default {
 };
 </script>
 <style scoped>
-
 .bigBg {
   width: 100vw;
   height: 100vh;
@@ -331,21 +338,29 @@ export default {
   font-weight: bold;
   color: #56433d;
 }
-.departmentInformation {
+.scrollbar {
   width: 30.98vw;
-  margin: 0 0 0 -1.04vw;
+  height: 20.05vw;
+   margin: 0 0 0 -1.04vw;
+  overflow: hidden;
+  pointer-events: auto;
+}
+.message {
+  width: 100%;
+}
+.departmentInformation {
+  width: 100%;
+  /* margin: 0 0 0 -0.52vw; */
   /* -1.04补正 由于translate导致的移位 是因为子元素继承父元素的属性？ */
-  /* width: 29.74vw; */
-  /* height: 5.36vw; */
   font-size: 1.1vw;
   font-family: SimHei;
   font-weight: 600;
   color: rgb(106, 103, 103);
 }
 .departmentTask {
-  margin: 2.04vw 0 0 -1.56vw;
+  margin: 2.04vw 0 0 -0.52vw;
   /* -1.56补正 由于translate导致的移位 是因为子元素继承父元素的属性？ */
-  width: 30.98vw;
+  width: 100%;
   font-size: 1.15vw;
   font-family: SimHei;
   font-weight: bold;

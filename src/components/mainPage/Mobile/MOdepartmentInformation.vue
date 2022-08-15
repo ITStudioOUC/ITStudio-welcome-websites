@@ -29,8 +29,14 @@
               <div class="infoContentWord">
                 <div class="Chinese">{{ item.department_cn }}</div>
                 <div class="English">{{ item.department_en }}</div>
-                <div class="departmentInformation">{{ item.content }}</div>
-                <div class="departmentTask">{{ item.introduction }}</div>
+                <div class="scrollbar">
+                <el-scrollbar max-height="27vw">
+                  <div class="message">
+                    <div class="departmentInformation">{{ item.content }}</div>
+                    <div class="departmentTask">{{ item.introduction }}</div>
+                  </div>
+                </el-scrollbar>
+                </div>
               </div>
               <!--左边-->
               <div class="departmentPic">
@@ -333,9 +339,19 @@ a:-webkit-any-link {
   font-weight: bold;
   color: #56433d;
 }
+.scrollbar {
+  width: 56.98vw;
+  height: 27vw;
+   margin: 0  0 5vw -2vw;
+  overflow: hidden;
+  pointer-events: auto;
+}
+.message {
+  width: 100%;
+}
 .departmentInformation {
   width: 56.98vw;
-  margin: 0 0 0 -2vw;
+  /* margin: 0 0 0 -2vw; */
   /* -1.04补正 由于translate导致的移位 是因为子元素继承父元素的属性？ */
   /* width: 29.74vw; */
   /* height: 5.36vw; */
@@ -345,7 +361,7 @@ a:-webkit-any-link {
   color: rgb(106, 103, 103);
 }
 .departmentTask {
-  margin: 2.04vw 0 2vw -3vw;
+  margin: 2.04vw 0 2vw -1vw;
   /* -1.56补正 由于translate导致的移位 是因为子元素继承父元素的属性？ */
   width: 56.98vw;
   font-size: 2.15vw;
