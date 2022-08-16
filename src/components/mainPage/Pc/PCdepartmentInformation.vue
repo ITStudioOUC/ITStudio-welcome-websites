@@ -1,5 +1,5 @@
 <template>
-  <div class="bigBg" ref="bigBg" @mousewheel.prevent>
+  <div class="bigBg" ref="bigBg">
      <!-- @mousewheel.prevent -->
     <div class="bgInfo">
       <div style="overflow: hidden; width: 14.2vw">
