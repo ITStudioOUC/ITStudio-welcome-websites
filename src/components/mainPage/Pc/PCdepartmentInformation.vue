@@ -197,7 +197,7 @@ export default {
   /* padding: 0 0 1vw 0; */
   display: flex;
   align-items: center;
-  /* background-attachment: fixed; */
+  background-attachment: fixed;
   background-image: url(https://cdn.lmark.cc/it/static/background2.png);
   background-size: 100vw 100vh;
 }
