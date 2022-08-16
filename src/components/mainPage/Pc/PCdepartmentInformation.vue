@@ -349,7 +349,8 @@ export default {
   width: 100%;
 }
 .departmentInformation {
-  width: 100%;
+  width: 98%;
+  padding-right: 2%; 
   /* margin: 0 0 0 -0.52vw; */
   /* -1.04补正 由于translate导致的移位 是因为子元素继承父元素的属性？ */
   font-size: 1.1vw;
@@ -360,7 +361,8 @@ export default {
 .departmentTask {
   margin: 2.04vw 0 0 -0.52vw;
   /* -1.56补正 由于translate导致的移位 是因为子元素继承父元素的属性？ */
-  width: 100%;
+  width: 98%;
+  padding-right: 2%;
   font-size: 1.15vw;
   font-family: SimHei;
   font-weight: bold;

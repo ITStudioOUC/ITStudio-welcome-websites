@@ -350,7 +350,8 @@ a:-webkit-any-link {
   width: 100%;
 }
 .departmentInformation {
-  width: 56.98vw;
+    width: 98%;
+  padding-right: 2%;
   /* margin: 0 0 0 -2vw; */
   /* -1.04补正 由于translate导致的移位 是因为子元素继承父元素的属性？ */
   /* width: 29.74vw; */
@@ -363,7 +364,8 @@ a:-webkit-any-link {
 .departmentTask {
   margin: 2.04vw 0 2vw -1vw;
   /* -1.56补正 由于translate导致的移位 是因为子元素继承父元素的属性？ */
-  width: 56.98vw;
+   width: 98%;
+  padding-right: 2%;
   font-size: 2.15vw;
   font-family:SimHei;
   font-weight: bold;
