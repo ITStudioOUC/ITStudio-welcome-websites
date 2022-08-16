@@ -95,6 +95,8 @@ export default {
     });
   },
   mounted() {
+    // 创建监听标签页变化的函数
+    window.addEventListener("visibilitychange",this.stopInterval);
     //自动开始定时器,播放弹幕
     //创建弹幕span的定时器
     this.barrageTimer = setInterval(() => {
@@ -114,8 +116,10 @@ export default {
   },
   unmounted() {
     //清除指定定时器
-    clearInterval(this.barrageTimer);
-    this.barrageTimer = null;
+    if (this.barrageTimer) {
+      clearInterval(this.barrageTimer);
+      this.barrageTimer = null;
+    }
   },
   methods: {
     // 展开弹幕
@@ -228,6 +232,28 @@ export default {
           this.getBarrage(); //循环播放
         }
       }, 2500);
+    },
+
+    // 停止播放弹幕
+    stopInterval() {
+      if (document.visibilityState == "hidden") {
+        // 清除定时器
+        clearInterval(this.barrageTimer);
+        this.barrageTimer = null;
+      } else if (document.visibilityState == "visible") {
+        console.log("已进入目标页");
+        this.barrageTimer = setInterval(() => {
+          if (this.barrageList.length) {
+            let first = this.barrageList.shift();
+            this.createBarrage(first);
+          } else {
+            // 弹幕播放完成后摧毁定时器
+            // clearInterval(this.barrageTimer)
+            // this.barrageTimer = null
+            this.getBarrage(); //循环播放
+          }
+        }, 2500);
+      }
     },
 
     //发送弹幕
@@ -469,7 +495,6 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
- 
 }
 .inputBox textarea {
   outline: none;
@@ -579,12 +604,11 @@ export default {
 /* 手机 768以下 */
 
 @media screen and (max-width: 768px) {
-  .bg{
+  .bg {
     width: 100vw;
     height: 100vh;
-
   }
-  .bg img{
+  .bg img {
     object-fit: cover;
   }
   .enterBox .enterBtn {
