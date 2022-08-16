@@ -30,7 +30,7 @@
                 <div class="Chinese">{{ item.department_cn }}</div>
                 <div class="English">{{ item.department_en }}</div>
                 <div class="scrollbar">
-                <el-scrollbar max-height="27vw">
+                <el-scrollbar max-height="27vw" always class="scrollbar-wrapper">
                   <div class="message">
                     <div class="departmentInformation">{{ item.content }}</div>
                     <div class="departmentTask">{{ item.introduction }}</div>
@@ -338,6 +338,13 @@ a:-webkit-any-link {
   font-family: Microsoft YaHei UI;
   font-weight: bold;
   color: #56433d;
+}
+/* 滚动条 */
+.scrollbar-wrapper {
+  overflow-x: hidden;
+}
+.scrollbar >>> .el-scrollbar__wrap {
+  overflow-x: hidden;
 }
 .scrollbar {
   width: 56.98vw;
