@@ -1,5 +1,5 @@
 <template>
-  <div><component :is="ismoORpc" /></div>
+  <component :is="ismoORpc" />
 </template>
 <script>
 import MOdepartmentInfo from "../components/mainPage/Mobile/MOdepartmentInformation.vue";

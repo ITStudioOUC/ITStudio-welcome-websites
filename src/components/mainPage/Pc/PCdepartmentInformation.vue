@@ -35,7 +35,7 @@
                 <div class="Chinese">{{ item.department_cn }}</div>
                 <div class="English">{{ item.department_en }}</div>
                 <div class="scrollbar">
-                <el-scrollbar max-height="20.05vw">
+                <el-scrollbar max-height="20.05vw" always class="scrollbar-wrapper">
                   <div class="message">
                     <div class="departmentInformation">{{ item.content }}</div>
                     <div class="departmentTask">{{ item.introduction }}</div>
@@ -199,7 +199,7 @@ export default {
   align-items: center;
   background-attachment: fixed;
   background-image: url(https://cdn.lmark.cc/it/static/background2.png);
-  background-size: cover;
+  background-size: 100vw 100vh;
 }
 .bgInfo {
   width: 100vw;
@@ -336,6 +336,13 @@ export default {
   font-family: Microsoft YaHei UI;
   font-weight: bold;
   color: #56433d;
+}
+/* 滚动条 */
+.scrollbar-wrapper {
+  overflow-x: hidden;
+}
+.scrollbar >>> .el-scrollbar__wrap {
+  overflow-x: hidden;
 }
 .scrollbar {
   width: 30.98vw;
