@@ -8,6 +8,7 @@ import AOS from 'aos/dist/aos.js'
 import ElementUI from 'element-plus';
 import "element-plus/theme-chalk/index.css"
 import axios from 'axios';
+import interceptor from "./interceptor/config"
 const app = createApp(App);
 app.config.globalProperties.$http = axios;
 axios.defaults.baseURL = 'https://api.lmark.cc/v1/api';
@@ -19,4 +20,4 @@ AOS.init({
     disable: 'mobile',
     once: true,
 });
-app.use(store).use(router).use(AOS).use(ElementUI).mount("#app");
+app.use(store).use(router).use(AOS).use(ElementUI).use(interceptor).mount("#app");

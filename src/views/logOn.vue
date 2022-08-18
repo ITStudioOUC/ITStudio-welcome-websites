@@ -379,8 +379,7 @@ export default {
             let msg;
             if (err.response.data.code == 42031) {
               msg = "邮件发送失败,请检查邮箱是否存在";
-            }
-            else msg = err.response.data.msg.email;
+            } else msg = err.response.data.msg.email;
             // switch (err.response.data.code) {
             //   case 40000:
             //     msg = "请勿频发发送验证码";
@@ -457,16 +456,19 @@ export default {
           })
           // 回调函数
           .then((res) => {
-            this.$message({
-              message: res.data.msg,
-              type: "success",
-              center: true,
-              duration: 2000,
-              showClose: true,
-            });
+            if (res.data.code == 20000) {
+              this.$message({
+                message: res.data.msg,
+                type: "success",
+                center: true,
+                duration: 2000,
+                showClose: true,
+              });
+              this.toHome()
+            }
           })
           .catch((err) => {
-            console.log('err',err)
+            console.log("err", err);
             let msg;
             switch (err.response.data.code) {
               case 40000:

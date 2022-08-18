@@ -216,7 +216,6 @@ export default {
   height: 2.55vw;
   background: #ffffff;
   border-radius: 1.25vw;
-
   line-height: 2.55vw;
   font-size: 1.25vw;
   font-family: Microsoft YaHei UI;
