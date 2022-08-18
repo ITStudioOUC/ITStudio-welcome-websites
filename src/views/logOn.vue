@@ -185,6 +185,7 @@
 </template>
 
 <script>
+import { ElLoading } from 'element-plus'
 export default {
   name: "logOn",
   props: {},
@@ -212,19 +213,26 @@ export default {
       count: "", //倒计时
       timer: null,
       productList: [
-        { id: -1, val: "请选择你的意向部门" },
-        { id: 0, val: "APP开发" },
-        { id: 1, val: "Web开发" },
-        { id: 2, val: "程序开发" },
-        { id: 3, val: "游戏开发" },
-        { id: 4, val: "UI设计" },
+        { id: 0, val: "请选择你的意向部门" },
+        { id: 1, val: "APP开发" },
+        { id: 2, val: "Web开发" },
+        { id: 3, val: "程序开发" },
+        { id: 4, val: "游戏开发" },
+        { id: 5, val: "UI设计" },
       ],
-      departmentValue: "-1", //获取被选中的value值， 默认选中的是1
+      departmentValue: "0", //获取被选中的value值， 默认选中的是1
       yanValue: null,
       expectValue: "",
       //学生数据
       stuData: {},
     };
+  },
+  watch: {
+    // emailValue() {
+    //   this.codeShowIs = true;
+    //   clearInterval(this.timer);
+    //   this.timer = null;
+    // },
   },
   methods: {
     // 姓名是否为中文
@@ -379,7 +387,7 @@ export default {
             let msg;
             if (err.response.data.code == 42031) {
               msg = "邮件发送失败,请检查邮箱是否存在";
-            } else msg = err.response.data.msg.email;
+            } else msg = err.response.data.msg;
             // switch (err.response.data.code) {
             //   case 40000:
             //     msg = "请勿频发发送验证码";
@@ -404,6 +412,7 @@ export default {
               duration: 2000,
               showClose: true,
             });
+            ElLoading.service({ fullscreen: true }).close()
           });
       } else {
         this.$message({
@@ -418,7 +427,7 @@ export default {
     //-------------------------------------------------------------------------------------------------------
     //提交数据
     change(event) {
-      this.currentId = event.target.value; //获取option对应的value值
+      this.departmentValue = event.target.value; //获取option对应的value值
     },
 
     // 表单总体判断 是否达到了提交的条件
@@ -429,7 +438,7 @@ export default {
         this.phoneHook == true &&
         this.yanValue != "" &&
         (!this.manShowIs || !this.womanShowIs || !this.noShowIs) &&
-        this.departmentValue != -1 &&
+        this.departmentValue != 0 &&
         this.expectValue != ""
       ) {
         return true;
@@ -464,7 +473,7 @@ export default {
                 duration: 2000,
                 showClose: true,
               });
-              this.toHome()
+              this.toHome();
             }
           })
           .catch((err) => {
