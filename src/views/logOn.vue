@@ -185,7 +185,7 @@
 </template>
 
 <script>
-import { ElLoading } from 'element-plus'
+import { ElLoading } from "element-plus";
 export default {
   name: "logOn",
   props: {},
@@ -220,7 +220,7 @@ export default {
         { id: 4, val: "游戏开发" },
         { id: 5, val: "UI设计" },
       ],
-      departmentValue: "0", //获取被选中的value值， 默认选中的是1
+      departmentValue: "0", //获取被选中的value值， 默认选中的是0
       yanValue: null,
       expectValue: "",
       //学生数据
@@ -412,7 +412,7 @@ export default {
               duration: 2000,
               showClose: true,
             });
-            ElLoading.service({ fullscreen: true }).close()
+            ElLoading.service({ fullscreen: true }).close();
           });
       } else {
         this.$message({
@@ -438,7 +438,7 @@ export default {
         this.phoneHook == true &&
         this.yanValue != "" &&
         (!this.manShowIs || !this.womanShowIs || !this.noShowIs) &&
-        this.departmentValue != 0 &&
+        this.departmentValue != "0" &&
         this.expectValue != ""
       ) {
         return true;
@@ -521,6 +521,7 @@ export default {
               duration: 2000,
               showClose: true,
             });
+            ElLoading.service({ fullscreen: true }).close();
           });
       } else {
         this.$message({
@@ -531,6 +532,7 @@ export default {
           showClose: true,
         });
       }
+      
     },
     toHome() {
       this.$router.push({
