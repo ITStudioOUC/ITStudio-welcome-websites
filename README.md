@@ -12,5 +12,5 @@ git submodule update --init -- XXX
 
 to clone only `XXX`,
 
-where XXX is named in form of the year of that website's creation, plus `-backend` or `-frontend` if the two are separated.
+where XXX is named in form of the year of that website's creation, plus `-backend` or `-frontend`.
 
