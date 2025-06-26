@@ -1,0 +1,12 @@
+[submodule "2021"]
+	path = 2021
+	url = https://gitee.com/ladeng07/ITShowPlatform.git
+[submodule "2022"]
+	path = 2022
+	url = https://github.com/dx2331lxz/itstudio_backstage.git
+[submodule "2023-backend"]
+	path = 2023-backend
+	url = https://github.com/24ITstudio/itstudio-website-backend
+[submodule "2023-frontend"]
+	path = 2023-frontend
+	url = https://github.com/24ITstudio/itstudio-website-frontend
