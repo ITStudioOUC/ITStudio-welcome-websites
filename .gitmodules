@@ -16,3 +16,6 @@
 [submodule "2019-frontend"]
 	path = 2019-frontend
 	url = https://github.com/NeWive/Gu-
+[submodule "homepage-2023"]
+	path = homepage-2023
+	url = https://github.com/moca-ldr/it-homepage

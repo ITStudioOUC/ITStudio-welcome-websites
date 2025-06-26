@@ -10,7 +10,8 @@ You are recommended to clone *without* `--recurse-submodules` and use:
 git submodule update --init -- XXX
 ```
 
-to clone only `XXX`,
+to clone only `XXX`:
 
-where XXX is named in form of the year of that website's creation, plus `-backend` or `-frontend`.
+- backend or frontend: XXX is named in form of the year of that website's creation, plus `-backend` or `-frontend`.
+- homepage: XXX is in form of homepage-`YEAR`
 
