@@ -25,13 +25,39 @@ export default {
   name: "department",
   data() {
     return {
-      departmentList: [],
+      departmentList: [
+        {
+          id: 3,
+          icon: require("@/assets/img/program.png"),
+          department_cn: "程序部",
+        },
+        {
+          id: 2,
+          icon: require("@/assets/img/web.png"),
+          department_cn: "Web部",
+        },
+        {
+          id: 5,
+          icon: require("@/assets/img/design.png"),
+          department_cn: "UI部",
+        },
+        {
+          id: 4,
+          icon: require("@/assets/img/game.png"),
+          department_cn: "游戏部",
+        },
+        {
+          id: 1,
+          icon: require("@/assets/img/app.png"),
+          department_cn: "APP部",
+        }
+      ],
     };
   },
   created() {
-    this.$http.get("/department/").then((res) => {
-      this.departmentList = res.data.data;
-    });
+    // this.$http.get("/department/").then((res) => {
+    //   this.departmentList = res.data.data;
+    // });
   },
   methods: {
     toDepartmentInfo(id) {
