@@ -89,10 +89,20 @@ export default {
       rootBg: require("../assets/img/rootBg.png"),
     };
   },
+  getBarrageList(){
+    return [
+      'wc',
+    ];
+  },
+  /**
+   * Fetches and initializes the barrage list when the component is created.
+   * Currently uses a local method `getBarrageList()` instead of API call (commented out).
+   */
   created() {
-    this.$http.get("/comment/").then((res) => {
-      this.barrageList = res.data.data;
-    });
+    // this.$http.get("/comment/").then((res) => {
+    //   this.barrageList = res.data.data;
+    // });
+    // this.barrageList = this.getBarrageList();
   },
   mounted() {
     // 创建监听标签页变化的函数
@@ -108,9 +118,10 @@ export default {
         // 弹幕播放完成后摧毁定时器
         // clearInterval(this.barrageTimer)
         //循环播放
-        this.$http.get("/comment/").then((res) => {
-          this.barrageList = res.data.data;
-        });
+        // this.$http.get("/comment/").then((res) => {
+        //   this.barrageList = res.data.data;
+        // });
+        // this.barrageList = this.getBarrageList();
       }
     }, 2500);
   },
@@ -290,43 +301,44 @@ export default {
 
     //获取弹幕方法
     getBarrage() {
-      this.$http.get("/comment/").then((res) => {
-        this.barrageList = res.data.data;
-      });
+      // this.$http.get("/comment/").then((res) => {
+      //   this.barrageList = res.data.data;
+      // });
+      this.barrageList = this.getBarrageList();
     },
     //发送弹幕方法
     postBarrage() {
-      this.$http
-        .post("/comment/", {
-          content: this.myBarrage,
-        })
-        .catch(function (error) {
-          if (error.response.status == 42001) {
-            this.$message({
-              message: "弹幕含有非法字符哦~",
-              type: "error",
-              center: true,
-              duration: 2000,
-              showClose: true,
-            });
-          } else if (error.response.status == 42002) {
-            this.$message({
-              message: "弹幕过长了哦~",
-              type: "error",
-              center: true,
-              duration: 2000,
-              showClose: true,
-            });
-          } else if (error.response.status == 42003) {
-            this.$message({
-              message: "弹幕不能为空哦~",
-              type: "error",
-              center: true,
-              duration: 2000,
-              showClose: true,
-            });
-          }
-        });
+      // this.$http
+      //   .post("/comment/", {
+      //     content: this.myBarrage,
+      //   })
+      //   .catch(function (error) {
+      //     if (error.response.status == 42001) {
+      //       this.$message({
+      //         message: "弹幕含有非法字符哦~",
+      //         type: "error",
+      //         center: true,
+      //         duration: 2000,
+      //         showClose: true,
+      //       });
+      //     } else if (error.response.status == 42002) {
+      //       this.$message({
+      //         message: "弹幕过长了哦~",
+      //         type: "error",
+      //         center: true,
+      //         duration: 2000,
+      //         showClose: true,
+      //       });
+      //     } else if (error.response.status == 42003) {
+      //       this.$message({
+      //         message: "弹幕不能为空哦~",
+      //         type: "error",
+      //         center: true,
+      //         duration: 2000,
+      //         showClose: true,
+      //       });
+      //     }
+      //   });
     },
   },
 };
