@@ -67,7 +67,7 @@
                   :class="index == isShowWorkPic ? 'show' : 'unshow'"
                 >
                   <!--控制图片显现 -->
-                  <img :src="item2.img" style="object-fit: cover" alt="" />
+                  <img :src="getImageUrl(`./${item2.img}`)" style="object-fit: cover" alt="" />
                 </div>
               </div>
             </div>
@@ -78,6 +78,8 @@
   </div>
 </template>
 <script  type="text/javascript">
+const images = require.context('../../../assets/works', false, /\.(png|jpe?g|svg)$/)
+console.log(images.keys()) // 打印所有图片路径
 export default {
   name: "worksShow",
   oldID: 0,
@@ -86,80 +88,7 @@ export default {
     return {
       oldID: 0,
       isShowWorkPic: -1, //控制图片显现：-1不显现，
-      dateORwork: [
-        {
-          date: "2004",
-          works: [
-            { work: "5", pic: require("../../../assets/works.png") },
-            { work: "5", pic: require("../../../assets/works.png") },
-            { work: "5", pic: require("../../../assets/works.png") },
-          ],
-        },
-        {
-          date: "2005",
-          works: [
-            { work: "6", pic: require("../../../assets/works.png") },
-            { work: "6", pic: require("../../../assets/works.png") },
-            { work: "6", pic: require("../../../assets/works.png") },
-          ],
-        },
-        {
-          date: "2006",
-          works: [
-            { work: "7", pic: require("../../../assets/works.png") },
-            { work: "7", pic: require("../../../assets/works.png") },
-            { work: "7", pic: require("../../../assets/works.png") },
-          ],
-        },
-        {
-          date: "2007",
-          works: [
-            { work: "6", pic: require("../../../assets/works.png") },
-            { work: "6", pic: require("../../../assets/works.png") },
-            { work: "6", pic: require("../../../assets/works.png") },
-          ],
-        },
-        {
-          date: "2008",
-          works: [
-            { work: "6", pic: require("../../../assets/works.png") },
-            { work: "6", pic: require("../../../assets/works.png") },
-            { work: "6", pic: require("../../../assets/works.png") },
-          ],
-        },
-        {
-          date: "2009",
-          works: [
-            { work: "6", pic: require("../../../assets/works.png") },
-            { work: "6", pic: require("../../../assets/works.png") },
-            { work: "6", pic: require("../../../assets/works.png") },
-          ],
-        },
-        {
-          date: "2010",
-          works: [
-            { work: "6", pic: require("../../../assets/works.png") },
-            { work: "6", pic: require("../../../assets/works.png") },
-            { work: "6", pic: require("../../../assets/works.png") },
-          ],
-        },
-        {
-          date: "2011",
-          works: [
-            { work: "6", pic: require("../../../assets/works.png") },
-            { work: "6", pic: require("../../../assets/works.png") },
-            { work: "6", pic: require("../../../assets/works.png") },
-          ],
-        },
-        {
-          date: "2012",
-          works: [
-            { work: "6", pic: require("../../../assets/works.png") },
-            { work: "6", pic: require("../../../assets/works.png") },
-            { work: "6", pic: require("../../../assets/works.png") },
-          ],
-        },
-      ],
+      dateORwork: [],
       // 激活项
       active: 0,
       pastID: 0,
@@ -169,16 +98,19 @@ export default {
     };
   },
   created() {
-    this.$http
-      .get("/work/", {
-        params: {},
-      })
-      //回调函数
+    // this.$http
+    //   .get("/work/", {
+    //     params: {},
+    //   })
+    //   //回调函数
 
-      .then((res) => {
-        this.$data.dateORwork = res.data.data;
-        this.$data.dateORwork_length = res.data.data.length;
-      });
+    //   .then((res) => {
+    //     this.$data.dateORwork = res.data.data;
+    //     this.$data.dateORwork_length = res.data.data.length;
+    //   });
+    const work = require('@/data/work.json');
+    this.$data.dateORwork = work;
+    this.$data.dateORwork_length = work.length;
   },
   mounted() {
     //&nbsp;切换页面时滚动条自动滚动到顶部
@@ -196,6 +128,14 @@ export default {
       );
   },
   methods: {
+    getImageUrl(path){
+      if (!images.keys().includes(path)) {
+        console.error(`Image not found: ${path}`);
+        return '';
+      } else {
+        return images(path);
+      }
+    },
     //函数防抖
     debounce(func, wait) {
       let timeout;
@@ -275,7 +215,7 @@ export default {
   display: flex;
   align-items: center;
   background-attachment: fixed;
-  background-image: url(https://cdn.lmark.cc/it/static/background3.png);
+  background-image: url(../../../assets/background3.png);
   background-size: cover;
 }
 .bgWorksShow {
