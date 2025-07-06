@@ -10,6 +10,10 @@
 [submodule "2021-backend"]
 	path = 2021-backend
 	url = https://gitee.com/ladeng07/ITShowPlatform.git
+[submodule "2021-frontend"]
+	path = 2021-frontend
+	url = https://github.com/ITStudioOUC/ITStudio-welcome-websites
+	branch = 2021-frontend
 [submodule "2020-frontend"]
 	path = 2020-frontend
 	url = https://github.com/EscpLA/ItStudio
