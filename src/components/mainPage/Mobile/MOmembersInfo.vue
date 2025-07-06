@@ -66,7 +66,7 @@
                         "
                         class="departmentName"
                       >
-                        {{ item1.department }}
+                        {{ item1.department_name }}
                       </div>
                       <!--a的宽度必须要小-->
                     </li>
@@ -100,7 +100,7 @@
                           :key="index"
                         >
                           <div class="memberPic">
-                            <img :src="item2.avatar" alt="" />
+                            <img :src="getAvatarUrl(`./${item2.avatar}`)" alt="" />
                           </div>
                           <div class="memberDetail">
                             <div class="memberName">&nbsp;{{ item2.name }}</div>
@@ -131,6 +131,8 @@
   </div>
 </template>
 <script>
+const images = require.context('../../../assets/avatar', false, /\.(png|jpe?g|svg|webp)$/)
+const members = require("@/data/members.json");
 export default {
   name: "membersInfo",
   components: "",
@@ -158,278 +160,96 @@ export default {
       memberArrays: [], //存放盒子数组
       memberArrayStore: [],
       departments: [],
-      members: [
-        [
-          {
-            pic: require("../../../assets/logo.png"),
-            name: "咩咩咩",
-            saying: "一顿不吃我心刺挠",
-          },
-          {
-            pic: require("../../../assets/logo.png"),
-            name: "咩咩咩",
-            saying: "一顿不吃我心刺挠",
-          },
-          {
-            pic: require("../../../assets/logo.png"),
-            name: "咩咩咩",
-            saying: "一顿不吃我心刺挠",
-          },
-          {
-            pic: require("../../../assets/logo.png"),
-            name: "咩咩咩",
-            saying: "一顿不吃我心刺挠",
-          },
-          {
-            pic: require("../../../assets/logo.png"),
-            name: "咩咩咩",
-            saying: "一顿不吃我心刺挠",
-          },
-          {
-            pic: require("../../../assets/logo.png"),
-            name: "咩咩咩",
-            saying: "一顿不吃我心刺挠",
-          },
-        ],
-        [
-          {
-            pic: require("../../../assets/logo.png"),
-            name: "咩咩咩",
-            saying: "一顿不吃我心刺挠",
-          },
-          {
-            pic: require("../../../assets/logo.png"),
-            name: "咩咩咩",
-            saying: "一顿不吃我心刺挠",
-          },
-          {
-            pic: require("../../../assets/logo.png"),
-            name: "咩咩咩",
-            saying: "一顿不吃我心刺挠",
-          },
-          {
-            pic: require("../../../assets/logo.png"),
-            name: "咩咩咩",
-            saying: "一顿不吃我心刺挠",
-          },
-          {
-            pic: require("../../../assets/logo.png"),
-            name: "咩咩咩",
-            saying: "一顿不吃我心刺挠",
-          },
-          {
-            pic: require("../../../assets/logo.png"),
-            name: "咩咩咩",
-            saying: "一顿不吃我心刺挠",
-          },
-        ],
-        [
-          {
-            pic: require("../../../assets/logo.png"),
-            name: "咩咩咩",
-            saying: "一顿不吃我心刺挠",
-          },
-          {
-            pic: require("../../../assets/logo.png"),
-            name: "咩咩咩",
-            saying: "一顿不吃我心刺挠",
-          },
-          {
-            pic: require("../../../assets/logo.png"),
-            name: "咩咩咩",
-            saying: "一顿不吃我心刺挠",
-          },
-          {
-            pic: require("../../../assets/logo.png"),
-            name: "咩咩咩",
-            saying: "一顿不吃我心刺挠",
-          },
-          {
-            pic: require("../../../assets/logo.png"),
-            name: "咩咩咩",
-            saying: "一顿不吃我心刺挠",
-          },
-          {
-            pic: require("../../../assets/logo.png"),
-            name: "咩咩咩",
-            saying: "一顿不吃我心刺挠",
-          },
-        ],
-        [
-          {
-            pic: require("../../../assets/logo.png"),
-            name: "咩咩咩",
-            saying: "一顿不吃我心刺挠",
-          },
-          {
-            pic: require("../../../assets/logo.png"),
-            name: "咩咩咩",
-            saying: "一顿不吃我心刺挠",
-          },
-          {
-            pic: require("../../../assets/logo.png"),
-            name: "咩咩咩",
-            saying: "一顿不吃我心刺挠",
-          },
-          {
-            pic: require("../../../assets/logo.png"),
-            name: "咩咩咩",
-            saying: "一顿不吃我心刺挠",
-          },
-          {
-            pic: require("../../../assets/logo.png"),
-            name: "咩咩咩",
-            saying: "一顿不吃我心刺挠",
-          },
-          {
-            pic: require("../../../assets/logo.png"),
-            name: "咩咩咩",
-            saying: "一顿不吃我心刺挠",
-          },
-        ],
-        [
-          {
-            pic: require("../../../assets/logo.png"),
-            name: "咩咩咩",
-            saying: "一顿不吃我心刺挠",
-          },
-          {
-            pic: require("../../../assets/logo.png"),
-            name: "咩咩咩",
-            saying: "一顿不吃我心刺挠",
-          },
-          {
-            pic: require("../../../assets/logo.png"),
-            name: "咩咩咩",
-            saying: "一顿不吃我心刺挠",
-          },
-          {
-            pic: require("../../../assets/logo.png"),
-            name: "咩咩咩",
-            saying: "一顿不吃我心刺挠",
-          },
-          {
-            pic: require("../../../assets/logo.png"),
-            name: "咩咩咩",
-            saying: "一顿不吃我心刺挠",
-          },
-          {
-            pic: require("../../../assets/logo.png"),
-            name: "咩咩咩",
-            saying: "一顿不吃我心刺挠",
-          },
-        ],
-      ],
-      dateORdepartment: [
-        {
-          date: "2004",
-          department: ["程序部", "游戏部", "Web部", "UI部", "App部"],
-        },
-        {
-          date: "2005",
-          department: ["程序部", "游戏部", "Web部", "UI部", "App部"],
-        },
-        {
-          date: "2006",
-          department: ["程序部", "游戏部", "Web部", "UI部", "App部"],
-        },
-        {
-          date: "2007",
-          department: ["程序部", "游戏部", "Web部", "UI部", "App部"],
-        },
-        {
-          date: "2008",
-          department: ["程序部", "游戏部", "Web部", "UI部", "App部"],
-        },
-        {
-          date: "2009",
-          department: ["程序部55", "游戏部", "Web部", "UI部", "App部"],
-        },
-        {
-          date: "2010",
-          department: ["程序部", "游戏部", "Web部", "UI部", "App部"],
-        },
-        {
-          date: "2011",
-          department: ["程序部", "游戏部", "Web部", "UI部", "App部"],
-        },
-        {
-          date: "2012",
-          department: ["程序部", "游戏部", "Web部", "UI部", "App部"],
-        },
-      ],
+      members: [],
+      dateORdepartment: [],
       RefFlag: false,
       startY: 0, //触控起始位置
     };
   },
   created() {
-    this.$http
-      .get("/history/", {
-        params: {},
-      })
-      //回调函数
+    // this.$http
+    //   .get("/history/", {
+    //     params: {},
+    //   })
+    //   //回调函数
 
-      .then((res) => {
-        this.$data.dateORdepartment = res.data.data;
-        if (this.$data.dateORdepartment.length == 11) {
-          this.$data.departments = this.$data.dateORdepartment;
-        }
-        this.$data.dateORdepartment_length = res.data.data.length;
-      });
+    //   .then((res) => {
+    //     this.$data.dateORdepartment = res.data.data;
+    //     if (this.$data.dateORdepartment.length == 11) {
+    //       this.$data.departments = this.$data.dateORdepartment;
+    //     }
+    //     this.$data.dateORdepartment_length = res.data.data.length;
+    //   });
     // -----------------------
-    this.$http
-      .get("/member/", {
-        params: {
-          years: 2021,
-          department_id: 1,
-        },
-      })
-      //回调函数
-      .then((res) => {
-        this.$data.members = res.data.data;
-        this.$data.memberArray_length = this.$data.members.length;
-        this.showArrow();
-      });
+    const departments = require("@/data/department.json");
+    this.$data.dateORdepartment = departments;
+    this.$data.departments = departments;
+    this.$data.dateORdepartment_length = departments.length;
+    // this.$http
+    //   .get("/member/", {
+    //     params: {
+    //       years: 2021,
+    //       department_id: 1,
+    //     },
+    //   })
+    //   //回调函数
+    //   .then((res) => {
+    //     this.$data.members = res.data.data;
+    //     this.$data.memberArray_length = this.$data.members.length;
+    //     this.showArrow();
+    //   });
+    const data = this.getMembers(2021, 1);
+    this.$data.members = data;
+    this.$data.memberArray_length = this.$data.members.length;
   },
   //监控部门ID的变化2个
   watch: {
     year(new_id) {
-      this.$http
-        .get("/member/", {
-          params: {
-            years: new_id,
-            department_id: this.$data.type,
-          },
-        })
-        //回调函数
-        .then((res) => {
-          this.$data.members = res.data.data;
-          this.$data.memberArray_length = this.$data.members.length;
-          this.$data.node = 0;
-          this.isRightInfo(new_id);
-          this.showArrow();
-        });
+      // this.$http
+      //   .get("/member/", {
+      //     params: {
+      //       years: new_id,
+      //       department_id: this.$data.type,
+      //     },
+      //   })
+      //   //回调函数
+      //   .then((res) => {
+      //     this.$data.members = res.data.data;
+      //     this.$data.memberArray_length = this.$data.members.length;
+      //     this.$data.node = 0;
+      //     this.isRightInfo(new_id);
+      //     this.showArrow();
+      //   });
       // ----------------------
+      const data = this.getMembers(new_id, this.$data.type);
+      this.$data.members = data;
+      this.$data.memberArray_length = this.$data.members.length;
+      this.$data.node = 0;
+      this.isRightInfo(new_id);
     },
     //  ----------------------
     type(new_id) {
-      this.$http
+      // this.$http
 
-        .get("/member/", {
-          params: {
-            years: this.$data.year,
-            department_id: new_id,
-          },
-        })
-        //回调函数
-        .then((res) => {
-          this.$data.members = res.data.data;
-          this.$data.memberArray_length = this.$data.members.length;
-          // console.log("返回", this.$data.memberArray_length);
-          this.$data.node = 0;
-          this.showArrow();
-        });
+      //   .get("/member/", {
+      //     params: {
+      //       years: this.$data.year,
+      //       department_id: new_id,
+      //     },
+      //   })
+      //   //回调函数
+      //   .then((res) => {
+      //     this.$data.members = res.data.data;
+      //     this.$data.memberArray_length = this.$data.members.length;
+      //     // console.log("返回", this.$data.memberArray_length);
+      //     this.$data.node = 0;
+      //     this.showArrow();
+      //   });
       // ----------------------
+      const data = this.getMembers(this.$data.year, new_id);
+      this.$data.members = data;
+      this.$data.memberArray_length = this.$data.members.length;
+      this.$data.node = 0;
     },
   },
   mounted() {
@@ -455,6 +275,17 @@ export default {
   },
 
   methods: {
+    getMembers(years, department_id){
+      return members[years][department_id];  
+    },
+    getAvatarUrl(path) {
+      if (!images.keys().includes(path)) {
+        console.error(`Image not found: ${path}`);
+        return "";
+      } else {
+        return images(path);
+      }
+    },
     //函数防抖
     debounce(func, wait) {
       let timeout;
