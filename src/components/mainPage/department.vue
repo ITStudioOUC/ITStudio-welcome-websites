@@ -27,7 +27,7 @@ export default {
     return {
       departmentList: [
         {
-          id: 3,
+          id: 1,
           icon: require("@/assets/img/program.png"),
           department_cn: "程序部",
         },
@@ -37,7 +37,7 @@ export default {
           department_cn: "Web部",
         },
         {
-          id: 5,
+          id: 3,
           icon: require("@/assets/img/design.png"),
           department_cn: "UI部",
         },
@@ -47,7 +47,7 @@ export default {
           department_cn: "游戏部",
         },
         {
-          id: 1,
+          id: 5,
           icon: require("@/assets/img/app.png"),
           department_cn: "APP部",
         }
