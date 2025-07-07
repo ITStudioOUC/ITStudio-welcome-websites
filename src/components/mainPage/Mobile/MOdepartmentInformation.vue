@@ -233,7 +233,7 @@ a:-webkit-any-link {
   display: flex;
   align-items: center;
   background-attachment: fixed;
-  background-image: url(https://cdn.lmark.cc/it/static/background2.png);
+  background-image: url(../../../assets/background2.png);
   background-size: cover;
 }
 .bgInfo {
