@@ -26,6 +26,10 @@
             {
                 "id": 5,
                 "department_name": "UI设计"
+            },
+            {
+                "id": 6,
+                "department_name": "系统维护"
             }
         ]
     },
@@ -73,6 +77,10 @@
             {
                 "id": 2,
                 "department_name": "Web开发"
+            },
+            {
+                "id": 3,
+                "department_name": "程序开发"
             },
             {
                 "id": 5,
